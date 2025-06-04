@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (homeLink) {
         homeLink.addEventListener("click", function (e) {
             e.preventDefault(); // Chặn hành vi mặc định
-            window.location.href = "Văn phòng phẩm.html"; // Điều hướng đúng file
+            window.location.href = "index.html"; // Điều hướng đúng file
         });
     }
 });
@@ -61,14 +61,14 @@ document.addEventListener("DOMContentLoaded", function () {
     const homeLink = document.getElementById("homeLink");
     if (homeLink) {
         homeLink.addEventListener("click", function (e) {
-            if (window.location.href.includes("Văn phòng phẩm.html")) {
+            if (window.location.href.includes("index.html")) {
                 // Nếu đang ở trang chủ rồi thì chỉ cần reload lại
                 e.preventDefault();
                 window.location.reload();
             } else {
                 // Nếu đang ở trang khác thì điều hướng về trang chủ
                 e.preventDefault();
-                window.location.href = "Văn phòng phẩm.html";
+                window.location.href = "index.html";
             }
         });
     }
@@ -77,7 +77,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 document.addEventListener("DOMContentLoaded", function () {
-    // Xử lý tìm kiếm từ trang chủ → chuyển đến products.html với query
+    // Xử lý tìm kiếm từ trang chủ → chuyển đến sanpham.html với query
     const searchInput = document.getElementById("searchInput");
     const searchButton = document.getElementById("searchButton");
 
@@ -85,12 +85,12 @@ document.addEventListener("DOMContentLoaded", function () {
         searchButton.addEventListener("click", function () {
             const keyword = searchInput.value.trim();
             if (keyword !== "") {
-                window.location.href = "products.html?search=" + encodeURIComponent(keyword);
+                window.location.href = "sanpham.html?search=" + encodeURIComponent(keyword);
             }
         });
     }
 
-    // Nếu đang ở trang products.html → lọc theo từ khóa trong URL
+    // Nếu đang ở trang sanpham.html → lọc theo từ khóa trong URL
     const productGrid = document.getElementById("productGrid");
     if (productGrid) {
         const params = new URLSearchParams(window.location.search);
@@ -116,7 +116,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (feedbackLink) {
         feedbackLink.addEventListener("click", function (e) {
             e.preventDefault();
-            window.location.href = "Phản hồi.html";
+            window.location.href = "phanhoi.html";
         });
     }
 });
