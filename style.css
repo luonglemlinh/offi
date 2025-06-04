@@ -103,6 +103,61 @@ header .container {
     width: 100%;
 }
 
+/* --- User Actions (Login/Cart Icons) --- */
+.user-actions {
+    display: flex; /* Dùng flexbox để sắp xếp các icon */
+    align-items: center; /* Căn giữa icon theo chiều dọc */
+    gap: 20px; /* Khoảng cách giữa icon Đăng nhập và Giỏ hàng */
+}
+
+.action-icon {
+    position: relative; /* Để định vị số lượng giỏ hàng */
+    display: flex; /* Đảm bảo icon img được căn chỉnh đúng */
+    align-items: center;
+    justify-content: center;
+    padding: 5px; /* Giúp dễ click hơn */
+    border-radius: 50%; /* Làm tròn nền icon nếu có */
+    transition: background-color 0.3s ease;
+}
+
+.action-icon:hover {
+    background-color: #f0f0f0; /* Nền nhẹ khi hover */
+}
+
+.action-icon img {
+    width: 24px; /* Kích thước icon */
+    height: 24px;
+    vertical-align: middle; /* Căn chỉnh với văn bản */
+}
+
+.cart-count {
+    position: absolute;
+    top: -8px; /* Đẩy lên trên icon */
+    right: -8px; /* Đẩy sang phải icon */
+    background-color: #e67e22; /* Màu cam nổi bật */
+    color: white;
+    font-size: 0.75em;
+    font-weight: bold;
+    border-radius: 50%;
+    padding: 3px 7px;
+    line-height: 1; /* Đảm bảo số không bị giãn dòng */
+    min-width: 12px; /* Đảm bảo hình tròn ngay cả với số 0 */
+    text-align: center;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+
+/* Điều chỉnh Responsive cho phần User Actions */
+@media (max-width: 768px) {
+    .user-actions {
+        margin-top: 20px; /* Tạo khoảng cách với menu khi xếp dọc */
+        justify-content: center; /* Căn giữa các icon khi menu xếp dọc */
+        width: 100%; /* Chiếm toàn bộ chiều rộng */
+    }
+
+    /* Có thể điều chỉnh lại kích thước hoặc ẩn icon nếu cần thiết */
+}
+
 /* --- Banner Section --- */
 .banner {
     position: relative;
