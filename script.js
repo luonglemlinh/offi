@@ -11,11 +11,11 @@ document.addEventListener("DOMContentLoaded", function () {
     if (homeLink) {
         homeLink.addEventListener("click", function (e) {
             e.preventDefault();
-            window.location.href = "index.html";
+            window.location.href = "index.html"; // Trang chủ mới
         });
     }
 
-    // Tìm kiếm từ trang chủ → sang trang sản phẩm
+    // Tìm kiếm từ trang chủ → chuyển sang sanpham.html
     if (!productGrid && searchInput && searchButton) {
         searchButton.addEventListener("click", function () {
             const keyword = searchInput.value.trim();
@@ -26,10 +26,10 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
     }
 
-    // Nếu không có productGrid thì dừng (để tránh lỗi ở trang khác)
+    // Nếu không phải trang sản phẩm thì dừng
     if (!productGrid) return;
 
-    // Danh sách gốc
+    // Danh sách sản phẩm gốc
     let originalProducts = Array.from(productGrid.querySelectorAll(".product-card"));
 
     // Lấy giá
@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
         return numberMatch ? parseInt(numberMatch.join("")) : 0;
     }
 
-    // Hàm lọc
+    // Lọc sản phẩm
     function applyFilters() {
         const keyword = searchInput?.value.trim().toLowerCase() || "";
         const sortOrder = priceSort?.value || "asc";
@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (priceSort) priceSort.addEventListener("change", applyFilters);
     if (categoryFilter) categoryFilter.addEventListener("change", applyFilters);
 
-    // Nếu có ?search= từ URL thì tự động tìm
+    // Đọc từ URL để tự động lọc
     const params = new URLSearchParams(window.location.search);
     const keywordFromURL = params.get("search");
     if (keywordFromURL && searchInput) {
@@ -82,6 +82,6 @@ document.addEventListener("DOMContentLoaded", function () {
         categoryFilter.value = categoryFromURL;
     }
 
-    // Lọc lúc đầu
+    // Lọc khi vào trang
     applyFilters();
 });
