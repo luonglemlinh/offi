@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const searchButton = document.getElementById("searchButton");
     const priceSort = document.getElementById("priceSort");
     const categoryFilter = document.getElementById("categoryFilter");
+    const productCards = document.querySelectorAll(".product-card");
     const productGrid = document.getElementById("productGrid");
     const homeLink = document.getElementById("homeLink");
 
@@ -65,6 +66,23 @@ document.addEventListener("DOMContentLoaded", function () {
         filtered.forEach(card => productGrid.appendChild(card));
     }
 
+    
+    categoryFilter.addEventListener("change", function () {
+        const selectedCategory = this.value;
+
+        productCards.forEach(card => {
+            const category = card.getAttribute("data-category");
+
+            if (selectedCategory === "all" || category === selectedCategory) {
+                card.style.display = "block";
+            } else {
+                card.style.display = "none";
+            }
+        });
+    });
+});
+
+    
     // Gắn sự kiện
     if (searchButton) searchButton.addEventListener("click", applyFilters);
     if (priceSort) priceSort.addEventListener("change", applyFilters);
