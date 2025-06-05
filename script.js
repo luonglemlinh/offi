@@ -66,6 +66,17 @@ document.addEventListener("DOMContentLoaded", () => {
         filtered.forEach(card => productGrid.appendChild(card));
     }
 
+    if (searchInput && searchButton) {
+        searchButton.addEventListener("click", function () {
+            const keyword = searchInput.value.trim();
+            if (keyword !== "") {
+                window.location.href = "sanpham.html?search=" + encodeURIComponent(keyword);
+            }
+        });
+    }
+
+
+    
     // Gắn sự kiện
     if (searchButton) searchButton.addEventListener("click", applyFilters);
     if (priceSort) priceSort.addEventListener("change", applyFilters);
