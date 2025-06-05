@@ -7,7 +7,22 @@ document.addEventListener("DOMContentLoaded", function () {
     const feedbackLink = document.getElementById("feedbackLink");
     const homeLink = document.getElementById("homeLink");
 
-    if (!productGrid) return;
+    // ======== TRANG CHỦ (không có productGrid) ========
+    if (!productGrid) {
+        if (searchButton && searchInput) {
+            searchButton.addEventListener("click", () => {
+                const keyword = searchInput.value.trim();
+                if (keyword !== "") {
+                    window.location.href = `sanpham.html?search=${encodeURIComponent(keyword)}`;
+                } else {
+                    window.location.href = `sanpham.html`;
+                }
+            });
+        }
+        return;
+    }
+
+    // ======== TRANG SẢN PHẨM ========
     let originalProducts = Array.from(productGrid.querySelectorAll(".product-card"));
 
     function getPriceValue(card) {
@@ -15,33 +30,6 @@ document.addEventListener("DOMContentLoaded", function () {
         const numberMatch = priceText.match(/\d+/g);
         return numberMatch ? parseInt(numberMatch.join("")) : 0;
     }
-
-    function themVaoGioHang(sanPham) {
-    let gioHang = JSON.parse(localStorage.getItem("gioHang")) || [];
-
-    const index = gioHang.findIndex(item => item.ten === sanPham.ten);
-    if (index !== -1) {
-        gioHang[index].soLuong += 1;
-    } else {
-        gioHang.push({ ...sanPham, soLuong: 1 });
-    }
-
-    localStorage.setItem("gioHang", JSON.stringify(gioHang));
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-    const nutThem = document.querySelectorAll(".btn-add-to-cart");
-    nutThem.forEach(btn => {
-        btn.addEventListener("click", () => {
-            const sanPham = {
-                ten: btn.dataset.ten,
-                gia: parseInt(btn.dataset.gia)
-            };
-            themVaoGioHang(sanPham);
-            alert(`✅ Đã thêm "${sanPham.ten}" vào giỏ hàng!`);
-        });
-    });
-});
 
     function applyFilters() {
         const keyword = searchInput?.value.trim().toLowerCase() || "";
@@ -54,13 +42,6 @@ document.addEventListener("DOMContentLoaded", () => {
             const matchKeyword = keyword === "" || name.includes(keyword);
             const matchCategory = selectedCategory === "all" || category === selectedCategory;
             return matchKeyword && matchCategory;
-            // Lấy từ khóa từ URL nếu có
-            const urlParams = new URLSearchParams(window.location.search);
-            const keywordFromURL = urlParams.get("search");
-            if (keywordFromURL) {
-                searchInput.value = keywordFromURL;
-}
-
         });
 
         filtered.sort((a, b) => {
@@ -73,35 +54,50 @@ document.addEventListener("DOMContentLoaded", () => {
         filtered.forEach(card => productGrid.appendChild(card));
     }
 
-    if (searchInput && searchButton) {
-        searchButton.addEventListener("click", function () {
-            const keyword = searchInput.value.trim();
-            if (keyword !== "") {
-                window.location.href = "sanpham.html?search=" + encodeURIComponent(keyword);
-            }
-        });
-    }
-
-
-    
-    // Gắn sự kiện
+    // ======== GÁN SỰ KIỆN LỌC ========
     if (searchButton) searchButton.addEventListener("click", applyFilters);
     if (priceSort) priceSort.addEventListener("change", applyFilters);
     if (categoryFilter) categoryFilter.addEventListener("change", applyFilters);
 
-    // Tìm kiếm bằng query string ?search=
+    // ======== LẤY THAM SỐ TỪ URL ========
     const params = new URLSearchParams(window.location.search);
-    const keyword = params.get("search");
+    const keywordFromURL = params.get("search");
     const categoryFromURL = params.get("category");
-    if (keyword && searchInput) {
-        searchInput.value = keyword;
+
+    if (keywordFromURL && searchInput) {
+        searchInput.value = keywordFromURL;
     }
     if (categoryFromURL && categoryFilter) {
         categoryFilter.value = categoryFromURL;
     }
-    applyFilters(); // áp dụng lọc ban đầu
 
-    // Home link
+    applyFilters(); // Áp dụng bộ lọc ban đầu
+
+    // ======== GIỎ HÀNG ========
+    function themVaoGioHang(sanPham) {
+        let gioHang = JSON.parse(localStorage.getItem("gioHang")) || [];
+        const index = gioHang.findIndex(item => item.ten === sanPham.ten);
+        if (index !== -1) {
+            gioHang[index].soLuong += 1;
+        } else {
+            gioHang.push({ ...sanPham, soLuong: 1 });
+        }
+        localStorage.setItem("gioHang", JSON.stringify(gioHang));
+    }
+
+    const nutThem = document.querySelectorAll(".btn-add-to-cart");
+    nutThem.forEach(btn => {
+        btn.addEventListener("click", () => {
+            const sanPham = {
+                ten: btn.dataset.ten,
+                gia: parseInt(btn.dataset.gia)
+            };
+            themVaoGioHang(sanPham);
+            alert(`✅ Đã thêm "${sanPham.ten}" vào giỏ hàng!`);
+        });
+    });
+
+    // ======== LINK CHUYỂN TRANG ========
     if (homeLink) {
         homeLink.addEventListener("click", function (e) {
             e.preventDefault();
@@ -109,7 +105,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Feedback link
     if (feedbackLink) {
         feedbackLink.addEventListener("click", function (e) {
             e.preventDefault();
@@ -117,17 +112,4 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
-
-
-// Nếu đang ở trang chủ (không có productGrid), gán sự kiện cho nút tìm kiếm để chuyển trang
-if (!productGrid && searchButton && searchInput) {
-    searchButton.addEventListener("click", () => {
-        const keyword = searchInput.value.trim();
-        if (keyword !== "") {
-            window.location.href = `sanpham.html?search=${encodeURIComponent(keyword)}`;
-        } else {
-            window.location.href = `sanpham.html`;
-        }
-    });
-}
 
