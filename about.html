@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Về chúng tôi - Văn phòng phẩm ABC</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Các kiểu CSS riêng cho trang About Us */
+        .about-us-section {
+            padding: 40px 0;
+        }
+
+        .about-intro {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .about-intro h1 {
+            font-size: 2.5em;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .about-intro p {
+            font-size: 1.1em;
+            color: #666;
+            line-height: 1.6;
+            /* Căn giữa đoạn văn bản trong khoảng giới hạn */
+            max-width: 800px; /* Giới hạn chiều rộng để đoạn văn bản không quá dài */
+            margin: 0 auto 10px auto; /* Căn giữa khối p */
+        }
+
+        .about-image {
+            text-align: center;
+            margin-top: 30px;
+            margin-bottom: 40px;
+        }
+
+        .about-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .section-content {
+            margin-bottom: 30px;
+            /* Căn giữa nội dung khối */
+            max-width: 900px; /* Giới hạn chiều rộng cho nội dung chính */
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0 15px; /* Thêm padding ngang để nội dung không bị dính vào mép màn hình nhỏ */
+        }
+
+        .section-content h2 {
+            font-size: 2em;
+            color: #333;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+            text-align: center; /* Căn giữa tiêu đề H2 */
+        }
+
+        .section-content p, .section-content ul {
+            font-size: 1em;
+            color: #444;
+            line-height: 1.7;
+            margin-bottom: 15px;
+            text-align: justify; /* Căn đều hai bên cho đoạn văn bản */
+        }
+        
+        .section-content ul {
+            list-style: disc;
+            margin-left: auto; /* Căn giữa danh sách ul */
+            margin-right: auto; /* Căn giữa danh sách ul */
+            width: fit-content; /* Đảm bảo ul có chiều rộng vừa đủ nội dung để căn giữa */
+            max-width: 100%; /* Đảm bảo không tràn ra ngoài */
+            padding-left: 25px; /* Giữ padding mặc định cho list-style */
+            box-sizing: border-box; /* Đảm bảo padding không làm tăng chiều rộng */
+        }
+
+        .section-content ul li {
+            margin-bottom: 8px;
+            text-align: left; /* Đảm bảo văn bản trong li căn trái */
+        }
+
+        .call-to-action {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #f0f8ff;
+            border-radius: 8px;
+            max-width: 800px; /* Giới hạn chiều rộng cho phần call-to-action */
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .call-to-action p {
+            font-size: 1.1em;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .call-to-action a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .call-to-action a:hover {
+            text-decoration: underline;
+        }
+
+        /* Đảm bảo container ở đây cũng có chiều rộng tối đa như ở index.html nếu style.css không định nghĩa */
+        .container {
+            max-width: 1200px; /* Điều chỉnh cho phù hợp với container trong style.css của bạn */
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/logo.png" alt="Logo Văn phòng phẩm ABC">
+                </a>
+            </div>
+            <nav class="main-menu">
+                <ul>
+                    <li><a href="index.html" id="homeLink">Trang chủ</a></li>
+                    <li><a href="sanpham.html">Sản phẩm</a></li>
+                    <li><a href="about.html">Về chúng tôi</a></li>
+                    <li><a href="phanhoi.html">Phản hồi</a></li>
+                </ul>
+            </nav>
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Tìm kiếm sản phẩm...">
+                <button id="searchButton">Tìm kiếm</button>
+            </div>
+            <div class="user-actions">
+                <a href="dangnhap.html" class="action-icon" aria-label="Đăng nhập">
+                    <img src="images/login_icon.png" alt="Đăng nhập">
+                </a>
+                <a href="giohang.html" class="action-icon" aria-label="Giỏ hàng">
+                    <img src="images/cart_icon.jpg" alt="Giỏ hàng">
+                    <span class="cart-count">0</span> </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="about-us-section">
+            <div class="container">
+                <div class="about-intro">
+                    <h1>Giới thiệu về Văn phòng phẩm ABC</h1>
+                    <p>Văn phòng phẩm ABC - đơn vị chuyên phân phối văn phòng phẩm chính hãng, được thành lập vào năm 2023, với mục tiêu cung cấp các sản phẩm văn phòng phẩm chất lượng, giá tốt. Chúng tôi nhằm đáp ứng nhu cầu đa dạng của khách hàng trên toàn quốc.</p>
+                    <p>Với đội ngũ nhân viên hỗ trợ khách hàng tận tâm, sẵn sàng giải đáp mọi thắc mắc và hỗ trợ trong quá trình mua sắm, chuyên nghiệp và nhanh chóng nhất.</p>
+                </div>
+
+                <div class="about-image">
+                    <img src="images/about-us-hero.jpg" alt="Văn phòng phẩm ABC"> <p>Văn phòng phẩm ABC - đơn vị chuyên phân phối văn phòng phẩm chính hãng</p>
+                </div>
+
+                <div class="section-content">
+                    <h2>Sứ mệnh của chúng tôi</h2>
+                    <p>Sứ mệnh của Văn phòng phẩm ABC là trở thành đơn vị phân phối văn phòng phẩm uy tín hàng đầu tại Việt Nam, mang đến cho khách hàng những sản phẩm chất lượng, dịch vụ tốt nhất và sự hài lòng cao nhất. Chúng tôi cam kết cung cấp những sản phẩm văn phòng phẩm đa dạng, từ những sản phẩm cơ bản như giấy, bút, sổ tay, cho đến những sản phẩm cao cấp như máy in, máy tính, thiết bị văn phòng.</p>
+                </div>
+
+                <div class="section-content">
+                    <h2>Tầm nhìn của chúng tôi</h2>
+                    <p>Văn phòng phẩm ABC luôn nỗ lực để trở thành đối tác tin cậy của mọi doanh nghiệp và cá nhân. Chúng tôi không chỉ cung cấp các sản phẩm thương hiệu văn phòng phẩm uy tín chất lượng, mà còn đặt mục tiêu xây dựng mối quan hệ lâu dài với khách hàng, trở thành một phần quan trọng trong quá trình phát triển và thành công của doanh nghiệp.</p>
+                </div>
+
+                <div class="section-content">
+                    <h2>Giá trị cốt lõi</h2>
+                    <p>Văn phòng phẩm ABC hướng đến sự chuyên nghiệp, tận tâm và sự đáng tin cậy. Chúng tôi luôn đặt lợi ích của khách hàng lên hàng đầu và đảm bảo mọi yêu cầu về đề xuất đều được xử lý một cách nhanh chóng và hiệu quả.</p>
+                    <p>Đội ngũ nhân viên của Văn phòng phẩm ABC được đào tạo chuyên sâu và luôn sẵn sàng tư vấn, hỗ trợ khách hàng với mọi vấn đề liên quan đến văn phòng phẩm.</p>
+                </div>
+
+                <div class="section-content">
+                    <h2>Sản phẩm đa dạng, chất lượng</h2>
+                    <p>Sản phẩm văn phòng phẩm của chúng tôi được chọn lọc kỹ càng từ các nhà cung cấp uy tín trên thị trường. Chúng tôi cam kết mang đến cho khách hàng những sản phẩm chất lượng, đáng tin cậy và đa dạng.</p>
+                    <p>Văn phòng phẩm ABC chuyên cung cấp một loạt các sản phẩm liên quan đến văn phòng phẩm, bao gồm giấy in, giấy photocopy, giấy A4, giấy A3, giấy A5, giấy in ảnh, dụng cụ văn phòng, bìa cứng, sổ tay và nhiều sản phẩm khác. Chúng tôi tự hào là đối tác hàng đầu của các thương hiệu nổi tiếng như Double A, Thiên Long, Hồng Hà, Deli, và nhiều thương hiệu khác. Văn phòng phẩm ABC đảm bảo mọi nhu cầu của khách hàng đều được đáp ứng một cách nhanh chóng và tốt nhất.</p>
+                    <p>Văn phòng phẩm ABC tự hào là đơn vị phân phối văn phòng phẩm uy tín hàng đầu tại Việt Nam. Với cam kết uy tín, chất lượng chúng tôi tin rằng khách hàng sẽ có sản phẩm giá rẻ, chiết khấu cao, thủ tục nhập mua hàng đơn giản, giao hàng nhanh, đảm bảo.</p>
+                </div>
+
+                <div class="call-to-action">
+                    <p>Hãy liên hệ với Văn phòng phẩm ABC để nhận được sản phẩm chất lượng, giá tốt cùng nhiều ưu đãi hấp dẫn!</p>
+                    <p>Email: <a href="mailto:info@vanphongphamabc.com">info@vanphongphamabc.com</a> | Điện thoại: 0987 654 321</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-columns">
+                <div class="footer-col">
+                    <h3>Địa chỉ cơ sở</h3>
+                    <p>Văn phòng phẩm ABC</p>
+                    <p>123 Đường ABC, Quận XYZ</p>
+                    <p>Thành phố Hà Nội, Việt Nam</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Các mục</h3>
+                    <ul>
+                        <li><a href="products.html">Tất cả sản phẩm</a></li>
+                        <li><a href="promotion.html">Khuyến mãi</a></li>
+                        <li><a href="faq.html">Câu hỏi thường gặp</a></li>
+                        <li><a href="privacy-policy.html">Chính sách bảo mật</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Thông tin liên hệ</h3>
+                    <p>Điện thoại: <a href="tel:+84987654321">0987 654 321</a></p>
+                    <p>Email: <a href="mailto:info@vanphongphamabc.com">info@vanphongphamabc.com</a></p>
+                    <div class="social-links">
+                        <a href="#" target="_blank"><img src="images/icon-facebook.png" alt="Facebook"></a>
+                        <a href="#" target="_blank"><img src="images/icon-instagram.png" alt="Instagram"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Văn phòng phẩm Offi</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
