@@ -16,6 +16,33 @@ document.addEventListener("DOMContentLoaded", function () {
         return numberMatch ? parseInt(numberMatch.join("")) : 0;
     }
 
+    function themVaoGioHang(sanPham) {
+    let gioHang = JSON.parse(localStorage.getItem("gioHang")) || [];
+
+    const index = gioHang.findIndex(item => item.ten === sanPham.ten);
+    if (index !== -1) {
+        gioHang[index].soLuong += 1;
+    } else {
+        gioHang.push({ ...sanPham, soLuong: 1 });
+    }
+
+    localStorage.setItem("gioHang", JSON.stringify(gioHang));
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    const nutThem = document.querySelectorAll(".btn-add-to-cart");
+    nutThem.forEach(btn => {
+        btn.addEventListener("click", () => {
+            const sanPham = {
+                ten: btn.dataset.ten,
+                gia: parseInt(btn.dataset.gia)
+            };
+            themVaoGioHang(sanPham);
+            alert(`✅ Đã thêm "${sanPham.ten}" vào giỏ hàng!`);
+        });
+    });
+});
+
     function applyFilters() {
         const keyword = searchInput?.value.trim().toLowerCase() || "";
         const sortOrder = priceSort?.value || "asc";
