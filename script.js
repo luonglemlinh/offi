@@ -1,46 +1,125 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Lấy phần tử
     const searchInput = document.getElementById("searchInput");
     const searchButton = document.getElementById("searchButton");
     const priceSort = document.getElementById("priceSort");
     const categoryFilter = document.getElementById("categoryFilter");
-    const productCards = document.querySelectorAll(".product-card");
     const productGrid = document.getElementById("productGrid");
-    const homeLink = document.getElementById("homeLink");
 
-    // Xử lý bấm "Trang chủ"
-    if (homeLink) {
-        homeLink.addEventListener("click", function (e) {
-            e.preventDefault();
-            window.location.href = "index.html"; // Trang chủ mới
-        });
-    }
-
-    // Tìm kiếm từ trang chủ → chuyển sang sanpham.html
-    if (!productGrid && searchInput && searchButton) {
-        searchButton.addEventListener("click", function () {
-            const keyword = searchInput.value.trim();
-            if (keyword !== "") {
-                window.location.href = "sanpham.html?search=" + encodeURIComponent(keyword);
-            }
-        });
-        return;
-    }
-
-    // Nếu không phải trang sản phẩm thì dừng
-    if (!productGrid) return;
-
-    // Danh sách sản phẩm gốc
+    if (!productGrid) return; 
     let originalProducts = Array.from(productGrid.querySelectorAll(".product-card"));
 
-    // Lấy giá
+    // Hàm lọc và sắp xếp
+    function applyFilters() {
+        const keyword = searchInput.value.trim().toLowerCase();
+        const sortOrder = priceSort.value;
+
+        // Lọc theo từ khóa
+        let filtered = originalProducts.filter(card => {
+            const name = card.querySelector("h3").textContent.toLowerCase();
+            return name.includes(keyword);
+        });
+
+        // Sắp xếp theo giá
+        filtered.sort((a, b) => {
+            const priceA = getPriceValue(a);
+            const priceB = getPriceValue(b);
+            return sortOrder === "asc" ? priceA - priceB : priceB - priceA;
+        });
+
+        // Gán lại vào grid
+        productGrid.innerHTML = "";
+        filtered.forEach(card => productGrid.appendChild(card));
+    }
+
+    // Lấy giá sản phẩm từ HTML
     function getPriceValue(card) {
         const priceText = card.querySelector("p").textContent;
         const numberMatch = priceText.match(/\d+/g);
         return numberMatch ? parseInt(numberMatch.join("")) : 0;
     }
 
-    // Lọc sản phẩm
+    // Gắn sự kiện
+    if (searchButton) searchButton.addEventListener("click", applyFilters);
+    if (priceSort) priceSort.addEventListener("change", applyFilters);
+});
+
+// Điều hướng về trang chủ khi bấm "Trang chủ"
+// Xử lý nút "Trang chủ" bằng JS nếu href không tự hoạt động
+document.addEventListener("DOMContentLoaded", function () {
+    const homeLink = document.getElementById("homeLink");
+    if (homeLink) {
+        homeLink.addEventListener("click", function (e) {
+            e.preventDefault(); // Chặn hành vi mặc định
+            window.location.href = "index.html"; // Điều hướng đúng file
+        });
+    }
+});
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const homeLink = document.getElementById("homeLink");
+    if (homeLink) {
+        homeLink.addEventListener("click", function (e) {
+            if (window.location.href.includes("index.html")) {
+                e.preventDefault();
+                window.location.reload();
+            } else {
+                e.preventDefault();
+                window.location.href = "index.html";
+            }
+        });
+    }
+});
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const searchInput = document.getElementById("searchInput");
+    const searchButton = document.getElementById("searchButton");
+
+    if (searchInput && searchButton) {
+        searchButton.addEventListener("click", function () {
+            const keyword = searchInput.value.trim();
+            if (keyword !== "") {
+                window.location.href = "sanpham.html?search=" + encodeURIComponent(keyword);
+            }
+        });
+    }
+
+    // Nếu đang ở trang products.html → lọc theo từ khóa trong URL
+    const productGrid = document.getElementById("productGrid");
+    if (productGrid) {
+        const params = new URLSearchParams(window.location.search);
+        const keyword = params.get("search");
+        if (keyword) {
+            const products = productGrid.querySelectorAll(".product-card");
+            products.forEach(card => {
+                const name = card.querySelector("h3").textContent.toLowerCase();
+                if (name.includes(keyword.toLowerCase())) {
+                    card.style.display = "block";
+                } else {
+                    card.style.display = "none";
+                }
+            });
+        }
+    }
+});
+
+
+//Phản hồi
+document.addEventListener("DOMContentLoaded", function () {
+    const feedbackLink = document.getElementById("feedbackLink");
+    if (feedbackLink) {
+        feedbackLink.addEventListener("click", function (e) {
+            e.preventDefault();
+            window.location.href = "phanhoi.html";
+        });
+    }
+});
+
+
+
+
     function applyFilters() {
         const keyword = searchInput?.value.trim().toLowerCase() || "";
         const sortOrder = priceSort?.value || "asc";
@@ -48,11 +127,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
         let filtered = originalProducts.filter(card => {
             const name = card.querySelector("h3").textContent.toLowerCase();
-            const category = card.getAttribute("data-category") || "all";
-
+            const category = card.getAttribute("data-category");
             const matchKeyword = keyword === "" || name.includes(keyword);
             const matchCategory = selectedCategory === "all" || category === selectedCategory;
-
             return matchKeyword && matchCategory;
         });
 
@@ -66,40 +143,76 @@ document.addEventListener("DOMContentLoaded", function () {
         filtered.forEach(card => productGrid.appendChild(card));
     }
 
-    
-    categoryFilter.addEventListener("change", function () {
-        const selectedCategory = this.value;
+    function getPriceValue(card) {
+        const priceText = card.querySelector("p").textContent;
+        const numberMatch = priceText.match(/\d+/g);
+        return numberMatch ? parseInt(numberMatch.join("")) : 0;
+    }
 
-        productCards.forEach(card => {
-            const category = card.getAttribute("data-category");
-
-            if (selectedCategory === "all" || category === selectedCategory) {
-                card.style.display = "block";
-            } else {
-                card.style.display = "none";
-            }
-        });
-    });
-});
-
-    
-    // Gắn sự kiện
     if (searchButton) searchButton.addEventListener("click", applyFilters);
     if (priceSort) priceSort.addEventListener("change", applyFilters);
     if (categoryFilter) categoryFilter.addEventListener("change", applyFilters);
 
-    // Đọc từ URL để tự động lọc
     const params = new URLSearchParams(window.location.search);
-    const keywordFromURL = params.get("search");
-    if (keywordFromURL && searchInput) {
-        searchInput.value = keywordFromURL;
+    const keyword = params.get("search");
+    if (keyword && searchInput) {
+        searchInput.value = keyword;
+        applyFilters();
+    }
+});
+
+
+
+
+    function getPriceValue(card) {
+        const priceText = card.querySelector("p").textContent;
+        const numberMatch = priceText.match(/\d+/g);
+        return numberMatch ? parseInt(numberMatch.join("")) : 0;
     }
 
+    function applyFilters() {
+        const keyword = searchInput?.value.trim().toLowerCase() || "";
+        const sortOrder = priceSort?.value || "asc";
+        const selectedCategory = categoryFilter?.value || "all";
+
+        let filtered = originalProducts.filter(card => {
+            const name = card.querySelector("h3").textContent.toLowerCase();
+            const category = card.getAttribute("data-category");
+            const matchKeyword = keyword === "" || name.includes(keyword);
+            const matchCategory = selectedCategory === "all" || category === selectedCategory;
+            return matchKeyword && matchCategory;
+        });
+
+        filtered.sort((a, b) => {
+            const priceA = getPriceValue(a);
+            const priceB = getPriceValue(b);
+            return sortOrder === "asc" ? priceA - priceB : priceB - priceA;
+        });
+
+        productGrid.innerHTML = "";
+        filtered.forEach(card => productGrid.appendChild(card));
+    }
+
+    // Sự kiện lọc
+    if (searchButton) searchButton.addEventListener("click", applyFilters);
+    if (priceSort) priceSort.addEventListener("change", applyFilters);
+    if (categoryFilter) categoryFilter.addEventListener("change", applyFilters);
+
+    // Đọc URL và áp dụng nếu có ?category=
+    const params = new URLSearchParams(window.location.search);
     const categoryFromURL = params.get("category");
     if (categoryFromURL && categoryFilter) {
         categoryFilter.value = categoryFromURL;
     }
 
-    // Lọc khi vào trang
+    // Sau khi set giá trị ban đầu → lọc
     applyFilters();
 });
+
+
+
+
+
+
+
+
