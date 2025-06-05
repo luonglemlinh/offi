@@ -54,6 +54,13 @@ document.addEventListener("DOMContentLoaded", () => {
             const matchKeyword = keyword === "" || name.includes(keyword);
             const matchCategory = selectedCategory === "all" || category === selectedCategory;
             return matchKeyword && matchCategory;
+            // Lấy từ khóa từ URL nếu có
+            const urlParams = new URLSearchParams(window.location.search);
+            const keywordFromURL = urlParams.get("search");
+            if (keywordFromURL) {
+                searchInput.value = keywordFromURL;
+}
+
         });
 
         filtered.sort((a, b) => {
