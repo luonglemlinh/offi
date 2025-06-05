@@ -110,3 +110,17 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
+
+
+// Nếu đang ở trang chủ (không có productGrid), gán sự kiện cho nút tìm kiếm để chuyển trang
+if (!productGrid && searchButton && searchInput) {
+    searchButton.addEventListener("click", () => {
+        const keyword = searchInput.value.trim();
+        if (keyword !== "") {
+            window.location.href = `sanpham.html?search=${encodeURIComponent(keyword)}`;
+        } else {
+            window.location.href = `sanpham.html`;
+        }
+    });
+}
+
