@@ -3,115 +3,116 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Văn phòng phẩm Offi - Giỏ hàng</title>
+    <title>Văn phòng phẩm ABC - Giỏ hàng</title>
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-    <header>
-        <div class="container">
-            <div class="logo">
-                <a href="index.html">
-                    <img src="images/logo.png" alt="Logo Văn phòng phẩm Offi" />
-                </a>
-            </div>
-            <nav class="main-menu">
-                <ul>
-                    <li><a href="index.html" id="homeLink">Trang chủ</a></li>
-                    <li><a href="sanpham.html">Sản phẩm</a></li>
-                    <li><a href="about.html">Về chúng tôi</a></li>
-                    <li><a href="phanhoi.html">Phản hồi</a></li>
-                </ul>
-            </nav>
-            <div class="search-bar">
-                <input type="text" id="searchInput" placeholder="Tìm kiếm sản phẩm..." />
-                <button id="searchButton">Tìm kiếm</button>
-            </div>
-            <div class="user-actions">
-                <a href="dangnhap.html" class="action-icon" aria-label="Đăng nhập">
-                    <img src="images/login_icon.png" alt="Đăng nhập" />
-                </a>
-                <a href="giohang.html" class="action-icon" aria-label="Giỏ hàng">
-                    <img src="images/cart_icon.jpg" alt="Giỏ hàng" />
-                    <span class="cart-count">0</span>
-                </a>
-            </div>
+<header>
+    <div class="container">
+        <div class="logo">
+            <a href="index.html">
+                <img src="images/logo.png" alt="Logo Văn phòng phẩm ABC" />
+            </a>
         </div>
-    </header>
+        <nav class="main-menu">
+            <ul>
+                <li><a href="index.html" id="homeLink">Trang chủ</a></li>
+                <li><a href="sanpham.html">Sản phẩm</a></li>
+                <li><a href="about.html">Về chúng tôi</a></li>
+                <li><a href="phanhoi.html">Phản hồi</a></li>
+            </ul>
+        </nav>
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Tìm kiếm sản phẩm..." />
+            <button id="searchButton">Tìm kiếm</button>
+        </div>
+        <div class="user-actions">
+            <a href="dangnhap.html" class="action-icon" aria-label="Đăng nhập">
+                <img src="images/login_icon.png" alt="Đăng nhập" />
+            </a>
+            <a href="giohang.html" class="action-icon" aria-label="Giỏ hàng">
+                <img src="images/cart_icon.jpg" alt="Giỏ hàng" />
+                <span class="cart-count">0</span>
+            </a>
+        </div>
+    </div>
+</header>
 
-    <main>
-      <div class="container">
+<main>
+    <div class="container">
         <h1>Giỏ hàng của bạn</h1>
 
-        <!-- Bảng giỏ hàng -->
         <table id="cart-table" style="width: 100%; border-collapse: collapse;">
-          <thead>
-            <tr>
-              <th>STT</th>
-              <th>Tên sản phẩm</th>
-              <th>Số lượng</th>
-              <th>Đơn giá</th>
-              <th>Thành tiền</th>
-              <th></th> <!-- Cột nút xóa nếu có -->
-            </tr>
-          </thead>
-          <tbody>
-            <!-- Các dòng sản phẩm sẽ được chèn bằng JS -->
-          </tbody>
+            <thead>
+                <tr>
+                    <th>STT</th>
+                    <th>Tên sản phẩm</th>
+                    <th>Số lượng</th>
+                    <th>Đơn giá</th>
+                    <th>Thành tiền</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Các dòng sản phẩm sẽ được chèn bằng JS -->
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="4" style="text-align:right; font-weight: bold;">Tổng cộng:</td>
+                    <td id="cart-total" style="font-weight: bold;">0₫</td>
+                    <td></td>
+                </tr>
+            </tfoot>
         </table>
-            <tr>
-              <td colspan="4" style="text-align:right; font-weight: bold;">Tổng cộng:</td>
-              <td id="cart-total" style="font-weight: bold;">0₫</td>
-              <td></td>
-            </tr>
 
         <div style="margin-bottom: 15px; text-align: right;">
-          <button class="btn btn-clear" id="clear-cart">Xóa hết giỏ hàng</button>
-          <a href="thanhtoan.html" class="btn btn-clear" style="margin-left: 15px;">Thanh toán</a>
+            <button class="btn btn-clear" id="clear-cart">Xóa hết giỏ hàng</button>
+            <a href="thanhtoan.html" class="btn btn-clear" style="margin-left: 15px;">Thanh toán</a>
         </div>
-          
+
         <div class="empty-cart" id="empty-message" style="display:none; margin-top: 15px;">
-          Giỏ hàng của bạn đang trống.
-          <br />
-          <a href="index.html" class="back-to-shop">Tiếp tục mua hàng</a>
+            Giỏ hàng của bạn đang trống.
+            <br />
+            <a href="index.html" class="back-to-shop">Tiếp tục mua hàng</a>
         </div>
-      </div>
-    </main>
+    </div>
+</main>
 
-    <footer>
-        <div class="container">
-            <div class="footer-columns">
-                <div class="footer-col">
-                    <h3>Địa chỉ cơ sở</h3>
-                    <p>Văn phòng phẩm Offi</p>
-                    <p>12 Chùa Bộc, phường Quang Trung, quận Đống Đa</p>
-                    <p>Thành phố Hà Nội, Việt Nam</p>
-                </div>
-                <div class="footer-col">
-                    <h3>Các mục</h3>
-                    <ul>
-                        <li><a href="sanpham.html">Tất cả sản phẩm</a></li>
-                        <li><a href="promotion.html">Khuyến mãi</a></li>
-                        <li><a href="faq.html">Câu hỏi thường gặp</a></li>
-                        <li><a href="privacy-policy.html">Chính sách bảo mật</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h3>Thông tin liên hệ</h3>
-                    <p>Điện thoại: <a href="tel:+84987654321">0987 654 321</a></p>
-                    <p>Email: <a href="mailto:info@vanphongphamoffi.com">info@vanphongphamoffi.com</a></p>
-                    <div class="social-links">
-                        <a href="https://www.facebook.com" target="_blank"><img src="images/LogoFacebook.png" alt="Facebook" /></a>
-                        <a href="https://www.instagram.com" target="_blank"><img src="images/LogoInstagram.png" alt="Instagram" /></a>
-                    </div>
+<footer>
+    <div class="container">
+        <div class="footer-columns">
+            <div class="footer-col">
+                <h3>Địa chỉ cơ sở</h3>
+                <p>Văn phòng phẩm ABC</p>
+                <p>123 Đường ABC, Quận XYZ</p>
+                <p>Thành phố Hà Nội, Việt Nam</p>
+            </div>
+            <div class="footer-col">
+                <h3>Các mục</h3>
+                <ul>
+                    <li><a href="sanpham.html">Tất cả sản phẩm</a></li>
+                    <li><a href="promotion.html">Khuyến mãi</a></li>
+                    <li><a href="faq.html">Câu hỏi thường gặp</a></li>
+                    <li><a href="privacy-policy.html">Chính sách bảo mật</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Thông tin liên hệ</h3>
+                <p>Điện thoại: <a href="tel:+84987654321">0987 654 321</a></p>
+                <p>Email: <a href="mailto:info@vanphongphamabc.com">info@vanphongphamabc.com</a></p>
+                <div class="social-links">
+                    <a href="#" target="_blank"><img src="images/icon-facebook.png" alt="Facebook" /></a>
+                    <a href="#" target="_blank"><img src="images/icon-instagram.png" alt="Instagram" /></a>
                 </div>
             </div>
-            <div class="copyright">
-                <p>&copy; 2025 Văn phòng phẩm Offi</p>
-            </div>
         </div>
-    </footer>
+        <div class="copyright">
+            <p>&copy; 2025 Văn phòng phẩm ABC. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
 
-    <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
