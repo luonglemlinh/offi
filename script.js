@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // ======== TRANG SẢN PHẨM ========
-    let originalProducts = Array.from(productGrid.querySelectorAll(".product-item"));
+    let originalProducts = Array.from(productGrid.querySelectorAll(".product-card"));
 
     function getPriceValue(card) {
         const priceText = card.querySelector("p").textContent;
