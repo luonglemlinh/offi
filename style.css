@@ -13,7 +13,6 @@ body {
     width: 90%; /* Chiều rộng nội dung chính */
     max-width: 1200px; /* Giới hạn chiều rộng tối đa */
     margin: 0 auto; /* Căn giữa nội dung */
-    
 }
 
 a {
