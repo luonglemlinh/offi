@@ -112,52 +112,14 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 });
-    // ======== MỞ / ĐÓNG POPUP GIỎ HÀNG ========
-    const cartButton = document.getElementById("cartButton"); // Nút giỏ hàng
-    const cartPopup = document.getElementById("cart-popup");
-    const closeBtn = document.querySelector(".close-btn");
+// Mở popup khi nhấn vào biểu tượng giỏ hàng
+document.getElementById("cart-icon-btn").addEventListener("click", function() {
+    document.getElementById("cart-popup").style.display = "flex";
+});
 
-    function toggleCartPopup() {
-        if (cartPopup) {
-            cartPopup.style.display = cartPopup.style.display === "block" ? "none" : "block";
-            hienThiGioHang();
-        }
-    }
+// Đóng popup khi nhấn dấu X
+document.querySelector(".close-btn").addEventListener("click", function() {
+    document.getElementById("cart-popup").style.display = "none";
+});
 
-    if (cartButton) {
-        cartButton.addEventListener("click", toggleCartPopup);
-    }
-
-    if (closeBtn) {
-        closeBtn.addEventListener("click", toggleCartPopup);
-    }
-
-    window.addEventListener("click", function (e) {
-        if (e.target === cartPopup) {
-            cartPopup.style.display = "none";
-        }
-    });
-
-    // ======== HIỂN THỊ DANH SÁCH GIỎ HÀNG TRONG POPUP ========
-    function hienThiGioHang() {
-        const cartItemsContainer = document.getElementById("cart-items");
-        let gioHang = JSON.parse(localStorage.getItem("gioHang")) || [];
-
-        if (!cartItemsContainer) return;
-
-        if (gioHang.length === 0) {
-            cartItemsContainer.innerHTML = "<p>Giỏ hàng đang trống.</p>";
-            return;
-        }
-
-        cartItemsContainer.innerHTML = "";
-        gioHang.forEach(item => {
-            const div = document.createElement("div");
-            div.className = "cart-item";
-            div.innerHTML = `
-                <strong>${item.ten}</strong> - ${item.gia.toLocaleString()}đ × ${item.soLuong}
-            `;
-            cartItemsContainer.appendChild(div);
-        });
-    }
 
