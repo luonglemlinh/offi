@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Giỏ hàng</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <div class="logo">
+            <a href="index.html"><img src="images/logo.png" alt="Logo Văn phòng phẩm ABC"></a>
+        </div>
+        <nav class="main-menu">
+            <ul>
+                <li><a href="index.html">Trang chủ</a></li>
+                <li><a href="sanpham.html">Sản phẩm</a></li>
+                <li><a href="about.html">Về chúng tôi</a></li>
+                <li><a href="phanhoi.html">Phản hồi</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <section class="cart-section">
+        <div class="container">
+            <h1>Giỏ hàng của bạn</h1>
+            <table class="cart-table">
+                <thead>
+                    <tr>
+                        <th>Tên sản phẩm</th>
+                        <th>Số lượng</th>
+                        <th>Giá</th>
+                        <th>Thành tiền</th>
+                        <th>Xóa</th>
+                    </tr>
+                </thead>
+                <tbody id="cartItems">
+                    <!-- Dữ liệu giỏ hàng sẽ hiển thị tại đây -->
+                </tbody>
+            </table>
+            <h2 id="totalPrice">Tổng cộng: 0 VNĐ</h2>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2025 Văn phòng phẩm ABC. All rights reserved.</p>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
