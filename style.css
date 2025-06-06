@@ -377,6 +377,43 @@ h2::after { /* Đường kẻ dưới tiêu đề */
     margin-bottom: 25px;
 }
 
+#mainProductImage {
+    width: 100%;
+    max-width: 450px; /* Giới hạn kích thước ảnh chính */
+    height: auto;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.thumbnail-container {
+    display: flex;
+    justify-content: center; /* Căn giữa các ảnh nhỏ */
+    gap: 10px;
+    flex-wrap: wrap; /* Cho phép xuống dòng nếu nhiều ảnh */
+}
+
+.thumbnail {
+    width: 80px; /* Kích thước ảnh nhỏ */
+    height: 80px;
+    object-fit: cover; /* Đảm bảo ảnh phủ kín và không bị méo */
+    border: 2px solid #eee;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.thumbnail:hover {
+    border-color: #007bff; /* Viền xanh khi hover */
+    transform: translateY(-2px);
+}
+
+.thumbnail.active { /* Ảnh nhỏ đang được chọn */
+    border-color: #e67e22; /* Viền cam nổi bật */
+    box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.5); /* Hiệu ứng sáng xung quanh */
+}
+
 /* --- Footer Section --- */
 footer {
     background-color: #333; /* Nền tối cho footer */
