@@ -6,15 +6,11 @@
     <title>Văn phòng phẩm Offi - Trang chủ</title>
     <link rel="stylesheet" href="style.css">
 </head>
-    <!-- POPUP GIỎ HÀNG -->
 <div id="cart-popup" class="cart-popup">
   <div class="cart-content">
-    <span class="close-btn" onclick="toggleCart()">&times;</span>
+    <span class="close-btn">&times;</span>
     <h2>Giỏ hàng của bạn</h2>
-    <div id="cart-items">
-      <p>Chưa có sản phẩm nào.</p>
-      <!-- Bạn có thể thêm nội dung động tại đây -->
-    </div>
+    <div id="cart-items"></div>
     <button onclick="window.location.href='thanhtoan.html'">Thanh toán</button>
   </div>
 </div>
@@ -43,10 +39,10 @@
                 <a href="dangnhap.html" class="action-icon" aria-label="Đăng nhập">
                     <img src="images/login_icon.png" alt="Đăng nhập">
                 </a>
-                <a href="giohang.html" class="action-icon" aria-label="Giỏ hàng">
-                    <img src="images/cart_icon.jpg" alt="Giỏ hàng">
-                    <span class="cart-count">0</span> </a>
-            </div>
+                <button id="cart-icon-btn" class="action-icon" aria-label="Giỏ hàng">
+                <img src="images/cart_icon.jpg" alt="Giỏ hàng">
+                <span class="cart-count">0</span>
+         </button>
         </div>
     </header>
 
