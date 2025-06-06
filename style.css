@@ -105,15 +105,6 @@ ul {
   text-align: right;
   padding-right: 20px;
 }
-.cart-actions {
-  width: 100%;
-  max-width: 100%;
-  display: flex;
-  justify-content: flex-end;
-  gap: 15px;
-  margin-top: 20px;
-}
-
 .cart-count {
     position: absolute;
     top: -8px; /* Đẩy lên trên icon */
