@@ -214,6 +214,26 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
+// ======== PROCEED TO CHECKOUT BUTTON ON GIOHANG.HTML ========
+    const proceedToCheckoutBtn = document.getElementById("proceedToCheckoutBtn");
+
+    if (proceedToCheckoutBtn) {
+        proceedToCheckoutBtn.addEventListener("click", function(event) {
+            // Tùy chọn: Kiểm tra xem giỏ hàng có trống không trước khi chuyển hướng
+            const gioHang = JSON.parse(localStorage.getItem("gioHang")) || [];
+            if (gioHang.length === 0) {
+                alert("Giỏ hàng của bạn đang trống. Vui lòng thêm sản phẩm trước khi thanh toán.");
+                event.preventDefault(); // Ngăn chặn chuyển hướng nếu giỏ hàng trống
+                return;
+            }
+            
+            // Nếu giỏ hàng có sản phẩm, chuyển hướng đến trang thanh toán
+            window.location.href = "thanhtoan.html";
+        });
+    }
+
+
+    
     // ======== CART DISPLAY ON GIOHANG.HTML ========
     const cartItemsContainer = document.getElementById("cartItems");
     const cartTotalElement = document.getElementById("cartTotal");
@@ -295,3 +315,5 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 });
+
+
