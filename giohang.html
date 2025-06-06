@@ -44,10 +44,29 @@
 <body>
   <div class="container">
     <h1>Giỏ hàng của bạn</h1>
-
+<table id="cart-table">
+  <thead>
+    <tr>
+      <th>STT</th>
+      <th>Tên sản phẩm</th>
+      <th>Số lượng</th>
+      <th>Đơn giá</th>
+      <th>Thành tiền</th>
     <button class="btn btn-clear" id="clear-cart">Xóa hết giỏ hàng</button>
     <a href="thanhtoan.html" class="btn btn-clear">Thanh toán</a>
-
+   </tr>
+  </thead>
+  <tbody>
+    <!-- Các dòng sản phẩm sẽ được chèn bằng JS -->
+  </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="4" style="text-align:right; font-weight: bold;">Tổng cộng:</td>
+      <td id="cart-total" style="font-weight: bold;">0₫</td>
+      <td></td>
+    </tr>
+  </tfoot>
+</table>
     <table id="cart-table">
       <thead>
         <tr>
@@ -58,9 +77,6 @@
           <th></th>
         </tr>
       </thead>
-      <tbody>
-        <!-- Các dòng sản phẩm sẽ được chèn bằng JS -->
-      </tbody>
     </table>
 
     <div class="total" id="cart-total">
