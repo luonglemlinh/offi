@@ -93,9 +93,22 @@ document.addEventListener("DOMContentLoaded", function () {
                 gia: parseInt(btn.dataset.gia)
             };
             themVaoGioHang(sanPham);
-            alert(`✅ Đã thêm "${sanPham.ten}" vào giỏ hàng!`);
+            alert(` Đã thêm "${sanPham.ten}" vào giỏ hàng!`);
         });
     });
+<script>
+  function toggleCart() {
+    const cart = document.getElementById('cart-popup');
+    cart.style.display = (cart.style.display === 'flex') ? 'none' : 'flex';
+  }
+
+  // Ẩn popup khi click ra ngoài
+  window.onclick = function(e) {
+    const popup = document.getElementById('cart-popup');
+    if (e.target === popup) {
+      popup.style.display = 'none';
+    }
+  }
 
     // ======== LINK CHUYỂN TRANG ========
     if (homeLink) {
