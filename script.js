@@ -6,17 +6,14 @@ document.addEventListener("DOMContentLoaded", function () {
     const productGrid = document.getElementById("productGrid");
     const feedbackLink = document.getElementById("feedbackLink");
     const homeLink = document.getElementById("homeLink");
+    const cartCount = document.getElementById("cartCount");
 
-    // ======== TRANG CHỦ (không có productGrid) ========
+    // ======== TRANG CHỦ ========
     if (!productGrid) {
         if (searchButton && searchInput) {
             searchButton.addEventListener("click", () => {
                 const keyword = searchInput.value.trim();
-                if (keyword !== "") {
-                    window.location.href = `sanpham.html?search=${encodeURIComponent(keyword)}`;
-                } else {
-                    window.location.href = `sanpham.html`;
-                }
+                window.location.href = `sanpham.html${keyword ? `?search=${encodeURIComponent(keyword)}` : ''}`;
             });
         }
         return;
@@ -24,28 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // ======== TRANG SẢN PHẨM ========
     let originalProducts = Array.from(productGrid.querySelectorAll(".product-card"));
-const urlParams = new URLSearchParams(window.location.search);
-const searchQuery = urlParams.get("search");
 
-if (searchQuery) {
-    searchInput.value = searchQuery;
-    filterBySearchKeyword(searchQuery);
-}
-
-function filterBySearchKeyword(keyword) {
-    keyword = keyword.toLowerCase();
-    productGrid.innerHTML = "";
-
-    const filtered = originalProducts.filter(card => {
-        const name = card.querySelector("h3").textContent.toLowerCase();
-        return name.includes(keyword);
-    });
-
-    filtered.forEach(card => productGrid.appendChild(card));
-}
-
-
-    
     function getPriceValue(card) {
         const priceText = card.querySelector("p").textContent;
         const numberMatch = priceText.match(/\d+/g);
@@ -75,48 +51,53 @@ function filterBySearchKeyword(keyword) {
         filtered.forEach(card => productGrid.appendChild(card));
     }
 
-    // ======== GÁN SỰ KIỆN LỌC ========
+    // ======== LỌC & SỰ KIỆN ========
     if (searchButton) searchButton.addEventListener("click", applyFilters);
     if (priceSort) priceSort.addEventListener("change", applyFilters);
     if (categoryFilter) categoryFilter.addEventListener("change", applyFilters);
 
-    // ======== LẤY THAM SỐ TỪ URL ========
+    // ======== LẤY THAM SỐ URL ========
     const params = new URLSearchParams(window.location.search);
     const keywordFromURL = params.get("search");
     const categoryFromURL = params.get("category");
 
-    if (keywordFromURL && searchInput) {
-        searchInput.value = keywordFromURL;
-    }
-    if (categoryFromURL && categoryFilter) {
-        categoryFilter.value = categoryFromURL;
-    }
+    if (keywordFromURL && searchInput) searchInput.value = keywordFromURL;
+    if (categoryFromURL && categoryFilter) categoryFilter.value = categoryFromURL;
 
-    applyFilters(); // Áp dụng bộ lọc ban đầu
+    applyFilters();
 
     // ======== GIỎ HÀNG ========
+    function capNhatSoLuongGioHang() {
+        const gioHang = JSON.parse(localStorage.getItem("gioHang")) || [];
+        const tong = gioHang.reduce((sum, sp) => sum + sp.soLuong, 0);
+        if (cartCount) cartCount.textContent = tong;
+    }
+
     function themVaoGioHang(sanPham) {
         let gioHang = JSON.parse(localStorage.getItem("gioHang")) || [];
         const index = gioHang.findIndex(item => item.ten === sanPham.ten);
         if (index !== -1) {
-            gioHang[index].soLuong += 1;
+            gioHang[index].soLuong += sanPham.soLuong;
         } else {
-            gioHang.push({ ...sanPham, soLuong: 1 });
+            gioHang.push(sanPham);
         }
         localStorage.setItem("gioHang", JSON.stringify(gioHang));
+        capNhatSoLuongGioHang();
     }
 
     const nutThem = document.querySelectorAll(".btn-add-to-cart");
     nutThem.forEach(btn => {
         btn.addEventListener("click", () => {
-            const sanPham = {
-                ten: btn.dataset.ten,
-                gia: parseInt(btn.dataset.gia)
-            };
-            themVaoGioHang(sanPham);
-            alert(` Đã thêm "${sanPham.ten}" vào giỏ hàng!`);
+            const ten = btn.dataset.ten;
+            const gia = parseInt(btn.dataset.gia);
+            const soLuong = parseInt(btn.dataset.soluong) || 1;
+
+            themVaoGioHang({ ten, gia, soLuong });
+            alert(`Đã thêm "${ten}" vào giỏ hàng!`);
         });
     });
+
+    capNhatSoLuongGioHang();
 
     // ======== LINK CHUYỂN TRANG ========
     if (homeLink) {
@@ -132,50 +113,17 @@ function filterBySearchKeyword(keyword) {
             window.location.href = "phanhoi.html";
         });
     }
+
+    // ======== TRANG CHI TIẾT (nếu có nút riêng) ========
+    const addToCartBtn = document.getElementById("addToCartBtn");
+    if (addToCartBtn) {
+        addToCartBtn.addEventListener("click", () => {
+            const ten = addToCartBtn.dataset.ten;
+            const gia = parseInt(addToCartBtn.dataset.gia);
+            const soLuong = parseInt(document.getElementById("quantity").value);
+            themVaoGioHang({ ten, gia, soLuong });
+            alert("Đã thêm vào giỏ hàng!");
+        });
+    }
 });
-
-// Thêm sản phẩm vào giỏ
-document.addEventListener('DOMContentLoaded', () => {
-  const addToCartBtn = document.getElementById('addToCartBtn');
-  const cartCount = document.getElementById('cartCount');
-
-  // Load số lượng sản phẩm từ localStorage
-  const updateCartCount = () => {
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
-    const count = cart.reduce((total, item) => total + item.quantity, 0);
-    if (cartCount) cartCount.textContent = count;
-  };
-
-  updateCartCount();
-
-  if (addToCartBtn) {
-    addToCartBtn.addEventListener('click', () => {
-      const name = addToCartBtn.dataset.ten;
-      const price = parseInt(addToCartBtn.dataset.gia);
-      const quantity = parseInt(document.getElementById('quantity').value);
-
-      const newItem = { name, price, quantity };
-
-      let cart = JSON.parse(localStorage.getItem('cart')) || [];
-
-      // Kiểm tra nếu đã có sản phẩm thì tăng số lượng
-      const existingItem = cart.find(item => item.name === name);
-      if (existingItem) {
-        existingItem.quantity += quantity;
-      } else {
-        cart.push(newItem);
-      }
-
-      localStorage.setItem('cart', JSON.stringify(cart));
-      updateCartCount();
-      alert('Đã thêm vào giỏ hàng!');
-    });
-  }
-});
-.container.right-panel-active .sign-up-container {
-    transform: translateX(100%); /* Di chuyển vào vị trí */
-    opacity: 1; /* Hiển thị rõ ràng */
-    z-index: 5; /* Nằm trên các phần tử khác */
-    animation: show 0.6s;
-}
-
+s
