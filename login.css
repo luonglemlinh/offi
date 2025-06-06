@@ -37,7 +37,7 @@ p {
 }
 
 a {
-    color: #007bff; /* màu link chính Offi */
+    color: #007bff; /* màu link chính được đổi sang #007bff */
     font-size: 14px;
     text-decoration: none;
     margin: 15px 0;
@@ -45,8 +45,8 @@ a {
 
 button {
     border-radius: 20px;
-    border: 1px solid #007bff;
-    background-color: #007bff;
+    border: 1px solid #007bff; /* màu viền nút được đổi sang #007bff */
+    background-color: #007bff; /* màu nền nút được đổi sang #007bff */
     color: #FFFFFF;
     font-size: 12px;
     font-weight: bold;
@@ -58,8 +58,8 @@ button {
 }
 
 button:hover {
-    background-color: #0056b3;
-    border-color: #0056b3;
+    background-color: #0056b3; /* màu nền nút hover được điều chỉnh cho #007bff */
+    border-color: #0056b3; /* màu viền nút hover được điều chỉnh cho #007bff */
 }
 
 button:active {
@@ -166,10 +166,11 @@ input {
 }
 
 .overlay {
-    background: linear-gradient(to right, #007bff, #0056b3); /* gradient Offi */
+    background: linear-gradient(to right, #007bff, #0056b3); /* gradient được đổi sang #007bff */
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 0 0;
     color: #FFFFFF;
     position: relative;
     left: -100%;
+}
