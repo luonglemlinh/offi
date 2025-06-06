@@ -112,14 +112,5 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 });
-// Mở popup khi nhấn vào biểu tượng giỏ hàng
-document.getElementById("cart-icon-btn").addEventListener("click", function() {
-    document.getElementById("cart-popup").style.display = "flex";
-});
-
-// Đóng popup khi nhấn dấu X
-document.querySelector(".close-btn").addEventListener("click", function() {
-    document.getElementById("cart-popup").style.display = "none";
-});
 
 
