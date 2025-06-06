@@ -151,5 +151,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
-
+.container.right-panel-active .sign-up-container {
+    transform: translateX(100%); /* Di chuyển vào vị trí */
+    opacity: 1; /* Hiển thị rõ ràng */
+    z-index: 5; /* Nằm trên các phần tử khác */
+    animation: show 0.6s;
+}
 
