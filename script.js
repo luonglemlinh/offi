@@ -24,7 +24,28 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // ======== TRANG SẢN PHẨM ========
     let originalProducts = Array.from(productGrid.querySelectorAll(".product-card"));
+const urlParams = new URLSearchParams(window.location.search);
+const searchQuery = urlParams.get("search");
 
+if (searchQuery) {
+    searchInput.value = searchQuery;
+    filterBySearchKeyword(searchQuery);
+}
+
+function filterBySearchKeyword(keyword) {
+    keyword = keyword.toLowerCase();
+    productGrid.innerHTML = "";
+
+    const filtered = originalProducts.filter(card => {
+        const name = card.querySelector("h3").textContent.toLowerCase();
+        return name.includes(keyword);
+    });
+
+    filtered.forEach(card => productGrid.appendChild(card));
+}
+
+
+    
     function getPriceValue(card) {
         const priceText = card.querySelector("p").textContent;
         const numberMatch = priceText.match(/\d+/g);
