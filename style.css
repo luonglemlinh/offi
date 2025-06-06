@@ -376,6 +376,10 @@ h2::after { /* Đường kẻ dưới tiêu đề */
     margin-bottom: 15px;
 }
 
+.filter-sort {
+    margin-bottom: 15px;
+}
+
 /* --- Footer Section --- */
 footer {
     background-color: #333; /* Nền tối cho footer */
