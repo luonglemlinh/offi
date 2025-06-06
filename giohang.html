@@ -1,24 +1,134 @@
-<!-- Nút mở giỏ hàng -->
-<button id="toggleCartBtn" style="position: fixed; top: 20px; right: 20px; z-index: 999;">
-    🛒 Giỏ hàng
-</button>
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Giỏ hàng của bạn</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f8f8f8;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 20px 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #007bff;
+      margin-bottom: 30px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 25px;
+    }
+    th, td {
+      padding: 12px 15px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+    th {
+      background-color: #007bff;
+      color: white;
+    }
+    tr:hover {
+      background-color: #f1f1f1;
+    }
+    .quantity-input {
+      width: 60px;
+      padding: 5px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .btn {
+      cursor: pointer;
+      padding: 8px 15px;
+      border: none;
+      border-radius: 4px;
+      font-size: 14px;
+      transition: background-color 0.3s ease;
+    }
+    .btn-remove {
+      background-color: #dc3545;
+      color: white;
+    }
+    .btn-remove:hover {
+      background-color: #b02a37;
+    }
+    .btn-clear {
+      background-color: #6c757d;
+      color: white;
+      float: right;
+      margin-bottom: 20px;
+    }
+    .btn-clear:hover {
+      background-color: #5a6268;
+    }
+    .total {
+      font-weight: bold;
+      font-size: 18px;
+      text-align: right;
+      margin-top: 20px;
+      color: #e67e22;
+    }
+    .empty-cart {
+      text-align: center;
+      font-size: 18px;
+      color: #999;
+      margin-top: 50px;
+    }
+    a.back-to-shop {
+      display: inline-block;
+      margin-top: 10px;
+      color: #007bff;
+      text-decoration: none;
+    }
+    a.back-to-shop:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Giỏ hàng của bạn</h1>
 
-<!-- Giao diện giỏ hàng -->
-<div id="cartContainer" style="
-    position: fixed;
-    top: 70px;
-    right: 20px;
-    width: 300px;
-    background: #fff;
-    border: 2px solid #3f51b5;
-    border-radius: 10px;
-    padding: 15px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    display: none;
-    z-index: 999;
-">
-    <h3 style="color: #3f51b5; text-align: center;">🛒 Giỏ hàng</h3>
-    <ul id="cartItems" style="list-style: none; padding: 0; margin: 10px 0;"></ul>
-    <hr>
-    <p><strong>Tổng tiền:</strong> <span id="totalPrice">0</span> đ</p>
-</div>
+    <button class="btn btn-clear" id="clear-cart">Xóa hết giỏ hàng</button>
+
+    <table id="cart-table">
+      <thead>
+        <tr>
+          <th>Sản phẩm</th>
+          <th>Đơn giá</th>
+          <th>Số lượng</th>
+          <th>Thành tiền</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Các dòng sản phẩm sẽ được chèn bằng JS -->
+      </tbody>
+    </table>
+
+    <div class="total" id="cart-total">
+      Tổng tiền: 0₫
+    </div>
+
+    <div class="empty-cart" id="empty-message" style="display:none;">
+      Giỏ hàng của bạn đang trống.
+      <br />
+      <a href="index.html" class="back-to-shop">Tiếp tục mua hàng</a>
+    </div>
+  </div>
+
+  <script src="giohang.js"></script>
+</body>
+</html>
