@@ -9,11 +9,6 @@ body {
     line-height: 1.6;
 }
 
-.logo {
-    width: 150px;
-    height: 100px;
-}
-
 .container {
     width: 90%; /* Chiều rộng nội dung chính */
     max-width: 1200px; /* Giới hạn chiều rộng tối đa */
@@ -153,7 +148,7 @@ header .container {
 }
 
 .logo img {
-    height: 50px; /* Chiều cao logo */
+    height: 100px; /* Chiều cao logo */
     width: auto;
 }
 
