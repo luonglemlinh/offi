@@ -125,6 +125,27 @@ document.addEventListener("DOMContentLoaded", function () {
             alert("Đã thêm vào giỏ hàng!");
         });
     }
+
+    const mainProductImage = document.getElementById('mainProductImage');
+    const thumbnailContainer = document.getElementById('thumbnailContainer');
+
+    if (mainProductImage && thumbnailContainer) {
+        const thumbnails = thumbnailContainer.querySelectorAll('.thumbnail');
+
+        // Gán sự kiện click cho mỗi thumbnail
+        thumbnails.forEach(thumbnail => {
+            thumbnail.addEventListener('click', function() {
+                // Lấy URL hình ảnh lớn từ thuộc tính data-full-image
+                const fullImageUrl = this.getAttribute('data-full-image');
+                mainProductImage.src = fullImageUrl; // Cập nhật hình ảnh chính
+
+                // Xóa class 'active' khỏi tất cả các thumbnail
+                thumbnails.forEach(t => t.classList.remove('active'));
+                // Thêm class 'active' vào thumbnail được click
+                this.classList.add('active');
+            });
+        });
+    }
 });
 
 
