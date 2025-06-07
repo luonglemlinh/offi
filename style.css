@@ -509,8 +509,12 @@ h2::after { /* Đường kẻ dưới tiêu đề */
 }
 
 .promo-content img {
-    max-width: 800px;
+    max-width: 800px; /* Giới hạn chiều rộng tối đa của ảnh */
+    width: 100%; /* Đảm bảo ảnh co giãn trong khoảng 800px */
     height: auto;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
 /* --- Footer Section --- */
