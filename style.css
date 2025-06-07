@@ -412,7 +412,7 @@ h2::after { /* Đường kẻ dưới tiêu đề */
 }
 
 .breadcrumb {
-    padding: 20px auto;
+    padding: 20px;
 }
 
 .product-content {
