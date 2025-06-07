@@ -467,6 +467,38 @@ h2::after { /* Đường kẻ dưới tiêu đề */
     float: left;
 }
 
+/* Styling for Quantity and Add to Cart Button on detail page */
+.product-actions {
+    display: flex; /* Sử dụng flexbox */
+    align-items: center; /* Căn chỉnh theo chiều dọc */
+    gap: 20px; /* Khoảng cách giữa các phần tử */
+    margin-top: 30px;
+    flex-wrap: wrap; /* Cho phép xuống dòng trên màn hình nhỏ */
+}
+
+.product-actions label {
+    font-weight: bold;
+    color: #333;
+    font-size: 1.1em;
+}
+
+.product-actions input[type="number"] {
+    width: 80px; /* Tăng chiều rộng input */
+    padding: 10px 15px; /* Tăng padding */
+    border: 1px solid #ccc;
+    border-radius: 8px; /* Bo tròn góc */
+    font-size: 1em;
+    text-align: center;
+    -moz-appearance: textfield; /* Ẩn mũi tên lên xuống của input number trên Firefox */
+}
+
+/* Ẩn mũi tên lên xuống của input number trên Chrome/Safari */
+.product-actions input[type="number"]::-webkit-outer-spin-button,
+.product-actions input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
 /* --- Footer Section --- */
 footer {
     background-color: #333; /* Nền tối cho footer */
