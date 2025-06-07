@@ -508,6 +508,11 @@ h2::after { /* Đường kẻ dưới tiêu đề */
     background-color: #218838;
 }
 
+.promo-content img {
+    width: 800px;
+    height: auto;
+}
+
 /* --- Footer Section --- */
 footer {
     background-color: #333; /* Nền tối cho footer */
