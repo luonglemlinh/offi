@@ -1,10 +1,4 @@
-Chắc chắn rồi! Dưới đây là mã HTML đã được điều chỉnh để tất cả các tiêu đề (<h1>, <h2>, <h3>) đều được căn giữa, đồng thời giữ nguyên cấu trúc và các quy tắc CSS đã thêm vào trước đó để đảm bảo hiển thị đồng nhất.
-
-Tôi đã cập nhật phần <style> trong thẻ <head> để áp dụng text-align: center !important; cho h1, h2 và h3.
-
-HTML
-
-<!DOCTYPE html>
+<!DOCTYPE html>More actions
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
@@ -12,125 +6,6 @@ HTML
     <title>Khuyến mãi: Họa Cụ SALE LỚN - Văn phòng phẩm Offi</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
-    <style>
-        /* CSS này được thêm trực tiếp vào file HTML
-         * để ghi đè các quy tắc từ style.css mà không chỉnh sửa style.css
-         * nhằm loại bỏ gạch chân cho link và giữ kiểu tiêu đề
-         */
-
-        /* Loại bỏ gạch chân và đặt lại màu cho tất cả các liên kết (a) */
-        a {
-            text-decoration: none !important; /* Xóa gạch chân */
-            color: inherit !important; /* Kế thừa màu từ phần tử cha (thường là màu đen #333) */
-        }
-
-        /* Đặt lại màu khi hover cho các liên kết */
-        a:hover {
-            color: #0056b3 !important; /* Màu xanh đậm hơn khi hover */
-            text-decoration: underline !important; /* Có gạch chân khi hover để dễ nhận biết */
-        }
-
-        /* Đảm bảo các liên kết trong menu chính không gạch chân và đúng màu */
-        .main-menu ul li a {
-            text-decoration: none !important;
-            color: #333 !important; /* Hoặc màu bạn muốn cho menu */
-        }
-
-        .main-menu ul li a:hover {
-            color: #0056b3 !important; /* Màu khi hover menu */
-            text-decoration: underline !important; /* Thêm gạch chân khi hover menu nếu muốn */
-        }
-
-        /* Đảm bảo các liên kết trong footer không gạch chân và đúng màu */
-        footer a {
-            text-decoration: none !important;
-            color: #ccc !important; /* Màu xám nhạt cho link footer */
-        }
-
-        footer a:hover {
-            color: #fff !important; /* Màu trắng khi hover footer */
-            text-decoration: underline !important; /* Có gạch chân khi hover footer nếu muốn */
-        }
-
-        /* Điều chỉnh các tiêu đề H1, H2, H3 để đảm bảo căn giữa, đúng cỡ chữ và không gạch chân */
-        h1, h2, h3 {
-            text-align: center !important; /* Tất cả các tiêu đề căn giữa */
-            font-weight: bold !important; /* Đảm bảo in đậm */
-            text-decoration: none !important; /* Không gạch chân */
-            color: #333 !important; /* Màu chữ mặc định */
-        }
-
-        h1 {
-            font-size: 2.8em !important;
-            margin-bottom: 40px !important;
-        }
-
-        h2 {
-            font-size: 1.8em !important;
-            margin-top: 30px !important;
-            margin-bottom: 15px !important;
-        }
-
-        h3 {
-            font-size: 1.4em !important;
-            margin-top: 20px !important;
-            margin-bottom: 10px !important;
-        }
-
-        /* Đảm bảo thẻ strong trong li vẫn in đậm và không gạch chân */
-        ul li strong {
-            font-weight: bold !important;
-            text-decoration: none !important; /* Không gạch chân */
-            color: #333 !important; /* Hoặc màu bạn muốn cho chữ đậm này */
-        }
-
-        /* Breadcrumb - thường có gạch chân để dễ nhận biết là link dẫn đường */
-        /* Bạn có thể bỏ gạch chân cho breadcrumb hoặc giữ lại */
-        .breadcrumb a {
-            text-decoration: none !important; /* Xóa gạch chân cho breadcrumb */
-            color: #007bff !important; /* Giữ màu xanh cho link breadcrumb */
-        }
-        .breadcrumb a:hover {
-            text-decoration: underline !important; /* Có gạch chân khi hover cho breadcrumb */
-        }
-
-        /* Một số điều chỉnh nhỏ cho bố cục nội dung mở rộng */
-        .promo-content h2 {
-            color: #007bff !important; /* Màu xanh nổi bật cho tiêu đề phụ trong promo-content */
-            margin-top: 40px !important;
-            margin-bottom: 20px !important;
-        }
-
-        .promo-content ul {
-            list-style: disc !important; /* Dấu chấm đầu dòng cho danh sách */
-            margin-left: 20px !important;
-            margin-bottom: 20px !important;
-            text-align: left !important; /* Đảm bảo danh sách vẫn căn trái */
-        }
-
-        .promo-content ul li {
-            margin-bottom: 10px !important;
-            line-height: 1.7 !important;
-        }
-
-        .promo-content p {
-            text-align: justify; /* Căn đều cho đoạn văn bản */
-        }
-        .promo-content p.promo-meta,
-        .promo-content p.promo-expiry {
-            text-align: center; /* Căn giữa cho các đoạn meta và expiry */
-        }
-
-
-        .promo-content .highlight {
-            font-weight: bold;
-            color: #d9534f; /* Màu đỏ nổi bật cho các điểm quan trọng */
-        }
-        .promo-content .btn-back {
-            margin-top: 30px;
-            text-align: center;
-        }
-    </style>
 </head>
 <body>
     <header>
@@ -151,7 +26,7 @@ HTML
             </nav>
             <div class="search-bar">
                 <input type="text" id="searchInput" placeholder="Tìm kiếm sản phẩm...">
-                <button id="searchButton">Tìm kiếm</button>
+                <button id="searchButton">Tìm kiếm</button>            
             </div>
             <div class="user-actions">
                 <a href="dangnhap.html" class="action-icon" aria-label="Đăng nhập">
@@ -175,28 +50,9 @@ HTML
                     <img src="images/promo_1.jpg" alt="Ưu đãi Họa cụ Mùa Hè">
                     <img src="images/banner.jpg" alt="Ưu đãi Họa cụ Mùa Hè">
                     <h1>Sáng Tạo Không Giới Hạn - Họa Cụ SALE LỚN ĐẾN 60%!</h1>
-                    <p class="promo-description">
-                        Chào mừng đến với thế giới sắc màu và ý tưởng bất tận!
-                        Mùa hè rực rỡ đã đến, và Văn phòng phẩm Offi hân hạnh mang đến một cơ hội không thể bỏ lỡ dành cho tất cả những tín đồ yêu nghệ thuật và sáng tạo! Chương trình "Họa Cụ SALE LỚN" với mức giảm giá <strong class="highlight">lên đến 60%</strong> cho hàng ngàn sản phẩm họa cụ cao cấp sẽ giúp bạn thỏa sức thể hiện tài năng và tạo ra những kiệt tác độc đáo.
-                    </p>
-
-                    <h2>Khám Phá Các Bộ Sưu Tập Đặc Biệt Trong Ưu Đãi:</h2>
-                    <p>Dù bạn là họa sĩ chuyên nghiệp, sinh viên mỹ thuật đang tìm kiếm công cụ học tập, hay chỉ đơn giản là người yêu thích vẽ vời muốn khám phá bản thân, đây là thời điểm vàng để nâng cấp bộ sưu tập họa cụ của mình:</p>
-                    <ul>
-                        <li><strong>Màu Nước Cao Cấp:</strong> Giảm 30% cho các bộ màu nước từ những thương hiệu nổi tiếng thế giới như Winsor & Newton, Sennelier. Với sắc tố đậm đà, độ bền màu vượt trội và khả năng pha trộn mượt mà, bạn sẽ dễ dàng tạo ra những tác phẩm sống động và chân thực nhất.</li>
-                        <li><strong>Bút Chì Màu & Bút Chì Than:</strong> Ưu đãi 40% cho bộ sưu tập bút chì màu chất lượng cao từ Faber-Castell, Prismacolor và các loại bút chì than chuyên dụng. Hoàn hảo cho việc phác thảo chi tiết, tô màu rực rỡ và tạo hiệu ứng đổ bóng đầy nghệ thuật.</li>
-                        <li><strong>Cọ Vẽ Đa Dạng:</strong> Giảm giá 25% cho tất cả các loại cọ vẽ, từ cọ lông sóc mềm mại lý tưởng cho màu nước, đến cọ tổng hợp cứng cáp phù hợp với màu acrylic và sơn dầu. Đảm bảo bạn có công cụ phù hợp cho mọi kỹ thuật và phong cách vẽ.</li>
-                        <li><strong>Giấy Vẽ Chuyên Dụng:</strong> Mua 2 tặng 1 hoặc giảm 35% cho các loại giấy vẽ chuyên biệt dành riêng cho màu nước, chì, marker hoặc pastel. Chất lượng giấy tối ưu không chỉ giúp bảo toàn màu sắc mà còn đảm bảo tác phẩm của bạn bền đẹp theo thời gian.</li>
-                        <li><strong>Và Hàng Ngàn Sản Phẩm Khác:</strong> Ngoài ra, chương trình còn áp dụng cho rất nhiều sản phẩm họa cụ thiết yếu khác như bảng pha màu, giá vẽ, dao tỉa, dung môi, bộ dụng cụ điêu khắc, v.v., tất cả đều đang chờ bạn khám phá với mức giá ưu đãi chưa từng có.</li>
-                    </ul>
-
-                    <h2>Tại Sao Bạn Nên Tham Gia Ngay?</h2>
-                    <p>Đây không chỉ là một chương trình giảm giá thông thường, mà còn là cơ hội tuyệt vời để bạn tiếp cận với những họa cụ chất lượng quốc tế với chi phí phải chăng nhất. Việc sử dụng họa cụ tốt sẽ giúp bạn phát huy tối đa khả năng sáng tạo, nâng cao kỹ năng và tạo ra những tác phẩm có giá trị hơn. Đừng bỏ lỡ để làm phong phú thêm kho tàng họa cụ của mình và khai phá tiềm năng nghệ thuật không giới hạn!</p>
-
-                    <p class="promo-meta"><strong>Điều kiện áp dụng:</strong> Chương trình áp dụng cho các sản phẩm họa cụ chọn lọc trong danh mục khuyến mãi. Mức giảm giá cụ thể sẽ được hiển thị trên từng sản phẩm. Khuyến mãi có thể không áp dụng đồng thời với các chương trình ưu đãi khác. Số lượng sản phẩm khuyến mãi có hạn, chương trình có thể kết thúc sớm hơn dự kiến khi hết hàng. Văn phòng phẩm Offi có quyền thay đổi các điều khoản và điều kiện của chương trình mà không cần báo trước.</p>
-                    <p class="promo-expiry"><strong>Chương trình khuyến mãi diễn ra từ ngày hôm nay và kéo dài đến hết:</strong> <strong>21/06/2025</strong></p>
-                    <p>Hãy truy cập ngay mục <a href="sanpham.html">Sản phẩm Họa cụ của chúng tôi</a> hoặc ghé thăm cửa hàng gần nhất để không bỏ lỡ những ưu đãi hấp dẫn này!</p>
-
+                    <p class="promo-description">Tận hưởng niềm vui sáng tạo với bộ sưu tập họa cụ chất lượng cao, giảm giá sâu cho mùa hè rực rỡ! Cơ hội tuyệt vời để sở hữu những bộ màu, cọ vẽ, giấy vẽ chuyên nghiệp với giá không tưởng.</p>
+                    <p class="promo-meta">Áp dụng cho các sản phẩm họa cụ chọn lọc.</p>
+                    <p class="promo-expiry"><strong>Hết hạn:</strong> 21/06/2025</p>
                     <a href="promotion.html" class="btn btn-back">Quay lại Tin khuyến mãi</a>
                 </div>
             </div>
@@ -216,7 +72,6 @@ HTML
                     <h3>Các mục</h3>
                     <ul>
                         <li><a href="sanpham.html">Tất cả sản phẩm</a></li>
-                        <li><a href="promotion.html">Khuyến mãi</a></li>
                         <li><a href="faq.html">Câu hỏi thường gặp</a></li>
                         <li><a href="privacy-policy.html">Chính sách bảo mật</a></li>
                     </ul>
