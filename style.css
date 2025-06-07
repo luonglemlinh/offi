@@ -492,6 +492,22 @@ h2::after { /* Đường kẻ dưới tiêu đề */
     margin: 0;
 }
 
+/* Nút Thêm vào giỏ trên trang chi tiết sản phẩm */
+.btn-them-gio {
+    background-color: #28a745;
+    color: white; /* Đảm bảo chữ trắng */
+    padding: 12px 25px;
+    font-size: 1.1em;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-them-gio:hover {
+    background-color: #218838;
+}
+
 /* --- Footer Section --- */
 footer {
     background-color: #333; /* Nền tối cho footer */
