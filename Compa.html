@@ -12,7 +12,7 @@
         <div class="container">
             <div class="logo">
                 <a href="index.html">
-                    <img src="images/logo.png" alt="Logo Văn phòng phẩm ABC">
+                    <img src="images/logo.png" alt="Logo Văn phòng phẩm Offi">
                 </a>
             </div>
             <nav class="main-menu">
@@ -44,11 +44,14 @@
         <section class="product-detail">
             <div class="container">
                 <div class="breadcrumb">
-                    <a href="index.html" id="homeLink">Trang chủ</a> &gt; <a href="sanpham.html">Sản phẩm</a> &gt; Compa học sinh
+                    <a href="index.html">Trang chủ</a> &gt; <a href="sanpham.html">Sản phẩm</a> &gt; Compa học sinh
                 </div>
                 <div class="product-content">
                     <div class="product-image">
-                        <img src="images/compa.png" alt="Compa học sinh">
+                        <img id="mainProductImage" src="images/compa.png" alt="Compa học sinh">
+                        <div id="thumbnailContainer" class="thumbnail-container">
+                            <img class="thumbnail active" src="images/compa.png" data-full-image="images/compa.png" alt="Compa học sinh">
+                            </div>
                     </div>
                     <div class="product-info">
                         <h1>Compa học sinh</h1>
@@ -74,7 +77,7 @@
                         <div class="product-actions">
                             <label for="quantity">Số lượng:</label>
                             <input type="number" id="quantity" name="quantity" value="1" min="1">
-                            <button class="btn-them-gio" data-ten="Compa học sinh" data-gia="20000">Thêm giỏ hàng</button>
+                            <button class="btn-them-gio" id="addToCartBtn" data-id="CompaHocSinh" data-ten="Compa học sinh" data-gia="20000">Thêm giỏ hàng</button>
                         </div>
                     </div>
                 </div>
@@ -87,24 +90,24 @@
                                 <img src="images/but_long_xanh.jpeg" alt="Bút lông bảng">
                                 <h3>Bút lông bảng</h3>
                                 <p class="price">10.000 VNĐ</p>
-                                <button class="btn">Mua ngay</button>
                             </a>
+                            <button class="btn">Mua ngay</button>
                         </div>
                         <div class="product-item">
                             <a href="SotayA5.html">
                                 <img src="images/so_A5.jpeg" alt="Sổ A5 kẻ ngang">
                                 <h3>Sổ A5 kẻ ngang</h3>
                                 <p class="price">25.000 VNĐ</p>
-                                <button class="btn">Mua ngay</button>
                             </a>
+                            <button class="btn">Mua ngay</button>
                         </div>
                         <div class="product-item">
                             <a href="Butchimau.html">
                                 <img src="images/faber_castell.jpeg" alt="Hộp bút chì màu Faber-Castell">
                                 <h3>Hộp bút chì màu Faber-Castell</h3>
                                 <p class="price">80.000 VNĐ</p>
-                                <button class="btn">Mua ngay</button>
                             </a>
+                            <button class="btn">Mua ngay</button>
                         </div>
                     </div>
                 </div>
@@ -140,7 +143,7 @@
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2025 Văn phòng phẩm ABC. All rights reserved.</p>
+                <p>&copy; 2025 Văn phòng phẩm Offi. All rights reserved.</p>
             </div>
         </div>
     </footer>
