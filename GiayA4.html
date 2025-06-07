@@ -12,7 +12,7 @@
         <div class="container">
             <div class="logo">
                 <a href="index.html">
-                    <img src="images/logo.png" alt="Logo Văn phòng phẩm ABC">
+                    <img src="images/logo.png" alt="Logo Văn phòng phẩm Offi">
                 </a>
             </div>
             <nav class="main-menu">
@@ -24,7 +24,7 @@
                     <li><a href="promotion.html">Tin khuyến mãi</a></li>
                 </ul>
             </nav>
-             <div class="search-bar">
+            <div class="search-bar">
                 <input type="text" id="searchInput" placeholder="Tìm kiếm sản phẩm...">
                 <button id="searchButton">Tìm kiếm</button>
             </div>
@@ -34,7 +34,8 @@
                 </a>
                 <a href="giohang.html" class="action-icon" aria-label="Giỏ hàng">
                     <img src="images/cart_icon.jpg" alt="Giỏ hàng">
-                    <span class="cart-count">0</span> </a>
+                    <span class="cart-count">0</span>
+                </a>
             </div>
         </div>
     </header>
@@ -47,7 +48,10 @@
                 </div>
                 <div class="product-content">
                     <div class="product-image">
-                        <img src="images/Giay_A4_70gsm.webp" alt="Giấy A4 Double A 70gsm">
+                        <img id="mainProductImage" src="images/Giay_A4_70gsm.webp" alt="Giấy A4 Double A 70gsm">
+                        <div id="thumbnailContainer" class="thumbnail-container">
+                            <img class="thumbnail active" src="images/Giay_A4_70gsm.webp" data-full-image="images/Giay_A4_70gsm.webp" alt="Giấy A4 Double A 70gsm">
+                            </div>
                     </div>
                     <div class="product-info">
                         <h1>Giấy A4 Double A 70gsm</h1>
@@ -58,7 +62,7 @@
                                 <li>- Thương hiệu: Double A</li>
                                 <li>- Kích thước: A4 (210 x 297 mm)</li>
                                 <li>- Định lượng: 70gsm</li>
-                                <li>- Số tờ: 500 tờ/ram</li>
+                                <li>- Số tờ: 500 tờ/ream</li>
                                 <li>- Màu giấy: Trắng sáng</li>
                                 <li>- Đặc điểm nổi bật:
                                     <ul>
@@ -74,7 +78,7 @@
                         <div class="product-actions">
                             <label for="quantity">Số lượng:</label>
                             <input type="number" id="quantity" name="quantity" value="1" min="1">
-                            <button class="btn-them-gio" data-ten="Giấy A4 Double A 70gsm" data-gia="65.000đ">Thêm giỏ hàng</button>
+                            <button class="btn-them-gio" id="addToCartBtn" data-id="GiayA4_DoubleA_70gsm" data-ten="Giấy A4 Double A 70gsm" data-gia="65000">Thêm giỏ hàng</button>
                         </div>
                     </div>
                 </div>
@@ -87,16 +91,16 @@
                                 <img src="images/thien_long_0.5.jpg" alt="Bút bi Thiên Long 0.5mm">
                                 <h3>Bút bi Thiên Long 0.5mm</h3>
                                 <p class="price">7.000 VNĐ</p>
-                            <button class="btn">Mua Ngay</button>
                             </a>
+                            <button class="btn">Mua ngay</button>
                         </div>
                         <div class="product-item">
                             <a href="Thuockenhua.html">
                                 <img src="images/thuoc_ke.jpeg" alt="Thước kẻ nhựa 20cm">
                                 <h3>Thước kẻ nhựa 20cm</h3>
                                 <p class="price">5.000 VNĐ</p>
-                            <button class="btn">Mua Ngay</button>
-                        </a>
+                            </a>
+                            <button class="btn">Mua ngay</button>
                         </div>
                         <div class="product-item">
                             <a href="Butchimau.html">
@@ -104,7 +108,7 @@
                                 <h3>Hộp bút chì màu Faber-Castell</h3>
                                 <p class="price">80.000 VNĐ</p>
                             </a>
-                            <button class="btn">Mua Ngay</button>
+                            <button class="btn">Mua ngay</button>
                         </div>
                     </div>
                 </div>
@@ -117,8 +121,8 @@
             <div class="footer-columns">
                 <div class="footer-col">
                     <h3>Địa chỉ cơ sở</h3>
-                    <p>Văn phòng phẩm ABC</p>
-                    <p>123 Đường ABC, Quận XYZ</p>
+                    <p>Văn phòng phẩm Offi</p>
+                    <p>12 Chùa Bộc, phường Quang Trung, quận Đống Đa</p>
                     <p>Thành phố Hà Nội, Việt Nam</p>
                 </div>
                 <div class="footer-col">
@@ -132,15 +136,15 @@
                 <div class="footer-col">
                     <h3>Thông tin liên hệ</h3>
                     <p>Điện thoại: <a href="tel:+84987654321">0987 654 321</a></p>
-                    <p>Email: <a href="mailto:info@vanphongphamabc.com">info@vanphongphamabc.com</a></p>
+                    <p>Email: <a href="mailto:info@vanphongphamoffi.com">info@vanphongphamoffi.com</a></p>
                     <div class="social-links">
-                        <a href="#" target="_blank"><img src="images/icon-facebook.png" alt="Facebook"></a>
-                        <a href="#" target="_blank"><img src="images/icon-instagram.png" alt="Instagram"></a>
+                        <a href="https://facebook.com" target="_blank"><img src="images/LogoFacebook.png" alt="Facebook"></a>
+                        <a href="https://instagram.com" target="_blank"><img src="images/LogoInstagram.png" alt="Instagram"></a>
                     </div>
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2025 Văn phòng phẩm ABC. All rights reserved.</p>
+                <p>&copy; 2025 Văn phòng phẩm Offi. All rights reserved.</p>
             </div>
         </div>
     </footer>
