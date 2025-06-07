@@ -1,11 +1,200 @@
+Hoàn toàn có thể! Để làm CSS trực tiếp trong file PromoHoacu.html (thay vì trong file style.css), bạn sẽ sử dụng thẻ <style> trong phần <head> của tài liệu HTML.
+
+Tuy nhiên, việc này không được khuyến khích cho một trang web lớn hoặc có nhiều trang vì nó làm cho việc quản lý và cập nhật CSS trở nên khó khăn hơn. Mỗi khi bạn muốn thay đổi kiểu dáng, bạn sẽ phải chỉnh sửa từng file HTML một. Sử dụng file CSS riêng biệt (style.css) là cách tốt hơn và dễ quản lý hơn rất nhiều.
+
+Nhưng nếu bạn chỉ muốn áp dụng các thay đổi này cho riêng trang PromoHoacu.html và không muốn ảnh hưởng đến style.css chung, thì đây là cách làm:
+
+1. Mở file PromoHoacu.html của bạn.
+
+2. Tìm thẻ <style> trong phần <head>. Nếu chưa có, bạn sẽ thêm nó vào.
+
+3. Thêm các quy tắc CSS vào bên trong thẻ <style> đó.
+
+Dưới đây là nội dung của file PromoHoacu.html với CSS được nhúng trực tiếp. Tôi đã giữ lại các phần CSS liên quan đến việc định dạng các đề mục in đậm và bỏ gạch chân như bạn yêu cầu, và một số CSS cơ bản để định hình trang khuyến mãi.
+
+HTML
+
 <!DOCTYPE html>
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Khuyến mãi: Họa Cụ SALE LỚN - Văn phòng phẩm Offi</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css"> 
     <script src="script.js"></script>
+
+    <style>
+        /* CSS NHÚNG TRỰC TIẾP CHO TRANG PROMO HOACU */
+
+        /* Đảm bảo các liên kết (a) không có gạch chân và màu mặc định */
+        /* Quy tắc này có thể bị ghi đè bởi style.css nếu nó được định nghĩa sau */
+        /* Nếu bạn muốn đảm bảo bỏ gạch chân, hãy thêm !important */
+        a {
+            text-decoration: none; /* Bỏ gạch chân link */
+            color: inherit; /* Kế thừa màu từ phần tử cha */
+        }
+
+        a:hover {
+            color: #0056b3; /* Đậm hơn khi hover, bạn có thể thay đổi màu này */
+        }
+
+        /* Đề mục H1 (Tiêu đề chính của trang) */
+        h1 {
+            text-align: center; /* Giữ nguyên căn giữa nếu bạn muốn tiêu đề chính giữa */
+            font-size: 2.8em;
+            color: #333;
+            margin-bottom: 40px;
+        }
+
+        /* Đề mục H2 - Áp dụng cho "Khám Phá Các Bộ Sưu Tập Đặc Biệt:" và "Tại Sao Bạn Nên Tham Gia?", "Thời Gian Áp Dụng:", "Điều Kiện & Điều Khoản:" */
+        h2 {
+            text-align: left; /* Không căn giữa */
+            font-size: 1.8em; /* Cỡ chữ phù hợp */
+            color: #333; /* Màu đen hoặc màu bạn muốn cho đề mục */
+            margin-top: 30px; /* Khoảng cách trên */
+            margin-bottom: 15px; /* Khoảng cách dưới */
+            font-weight: bold; /* Đảm bảo in đậm */
+        }
+
+        /* Đề mục H3 (nếu có, hoặc dùng cho các đề mục nhỏ hơn) */
+        h3 {
+            text-align: left; /* Không căn giữa */
+            font-size: 1.4em; /* Cỡ chữ phù hợp */
+            color: #333; /* Màu đen hoặc màu bạn muốn */
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-weight: bold; /* Đảm bảo in đậm */
+        }
+
+        /* Chỉnh sửa cho phần văn bản trong thẻ strong bên trong <li> */
+        .promo-content ul li strong {
+            font-size: 1.1em; /* Cỡ chữ lớn hơn một chút so với văn bản thường */
+            color: #333; /* Đảm bảo màu đen hoặc màu bạn muốn */
+            /* text-decoration: none; (không cần vì strong không có gạch chân mặc định) */
+        }
+
+        /* Các đoạn văn bản thông thường và mục danh sách */
+        p, li {
+            text-align: left; /* Đảm bảo các đoạn văn bản và mục danh sách căn trái */
+            margin-bottom: 1em; /* Khoảng cách dưới cho đoạn văn */
+        }
+
+        /* Các kiểu CSS riêng cho bố cục của promotion-detail-section */
+        .promotion-detail-section {
+            padding: 40px 0;
+            background-color: #f8f8f8;
+        }
+
+        .promotion-detail-section .promo-content {
+            max-width: 900px; /* Giới hạn chiều rộng nội dung */
+            margin: 0 auto; /* Căn giữa khối nội dung tổng thể */
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .promo-content img {
+            max-width: 100%;
+            height: auto;
+            display: block; /* Để căn giữa hình ảnh */
+            margin: 0 auto 30px auto;
+            border-radius: 8px;
+        }
+
+        /* CSS cho Breadcrumb */
+        .breadcrumb {
+            text-align: left; /* Đảm bảo breadcrumb căn trái */
+            margin-bottom: 20px;
+            color: #666;
+        }
+        .breadcrumb a {
+            color: #007bff; /* Màu xanh cho link breadcrumb */
+            text-decoration: none;
+        }
+        .breadcrumb a:hover {
+            text-decoration: underline; /* Gạch chân khi hover cho link breadcrumb */
+        }
+
+        /* CSS cho nút "Quay lại" */
+        .btn-back {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-back:hover {
+            background-color: #0056b3;
+        }
+
+        /* Các kiểu cho footer (nếu muốn chỉnh sửa trong file này) */
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 40px 0;
+            margin-top: 50px; /* Khoảng cách từ nội dung chính đến footer */
+        }
+
+        footer h3 {
+            color: white; /* Đảm bảo đề mục footer màu trắng */
+            font-size: 1.2em; /* Cỡ chữ cho đề mục footer */
+            margin-bottom: 15px;
+            text-align: left; /* Căn trái đề mục footer */
+        }
+
+        footer ul {
+            padding: 0;
+            list-style: none;
+        }
+
+        footer ul li a {
+            color: #ccc;
+            padding: 5px 0;
+            display: block;
+            text-decoration: none; /* Bỏ gạch chân */
+            text-align: left; /* Căn trái liên kết footer */
+        }
+
+        footer ul li a:hover {
+            color: #fff;
+            text-decoration: underline; /* Có gạch chân khi hover nếu muốn */
+        }
+
+        .footer-columns {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap; /* Cho phép các cột xuống hàng trên màn hình nhỏ */
+        }
+
+        .footer-col {
+            flex-basis: 30%; /* Chiều rộng mỗi cột */
+            margin-bottom: 20px;
+        }
+
+        .social-links img {
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .social-links img:hover {
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #555;
+            color: #aaa;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -19,7 +208,8 @@
                 <ul>
                     <li><a href="index.html" id="homeLink">Trang chủ</a></li>
                     <li><a href="sanpham.html">Sản phẩm</a></li>
-                    <li><a href="promotion.html">Tin khuyến mãi</a></li> <li><a href="about.html">Về chúng tôi</a></li>
+                    <li><a href="promotion.html">Tin khuyến mãi</a></li>
+                    <li><a href="about.html">Về chúng tôi</a></li>
                     <li><a href="phanhoi.html" id="feedbackLink">Phản hồi</a></li>
                 </ul>
             </nav>
@@ -51,6 +241,30 @@
                     
                     <p class="promo-description">
                         Mùa hè rực rỡ đã đến, và Văn phòng phẩm Offi mang đến một cơ hội không thể bỏ lỡ dành cho tất cả những tín đồ yêu nghệ thuật và sáng tạo! Chương trình "Họa Cụ SALE LỚN" với mức giảm giá **lên đến 60%** cho hàng ngàn sản phẩm họa cụ cao cấp. Dù bạn là họa sĩ chuyên nghiệp, sinh viên mỹ thuật, hay chỉ đơn giản là người yêu thích vẽ vời, đây là thời điểm vàng để nâng cấp bộ sưu tập họa cụ của mình.
+                    </p>
+
+                    <h2>Khám Phá Các Bộ Sưu Tập Đặc Biệt:</h2>
+                    <ul>
+                        <li>
+                            <strong>Màu Nước Cao Cấp:</strong> Giảm 30% cho các bộ màu nước từ các thương hiệu nổi tiếng như Winsor & Newton, Sennelier. Với sắc tố đậm đà, độ bền màu vượt trội, bạn sẽ tạo ra những tác phẩm sống động và chân thực nhất.
+                        </li>
+                        <li>
+                            <strong>Bút Chì Màu & Bút Chì Than:</strong> Ưu đãi 40% cho bộ sưu tập bút chì màu Faber-Castell, Prismacolor và các loại bút chì than chuyên dụng. Lý tưởng cho việc phác thảo, tô màu và tạo hiệu ứng đổ bóng.
+                        </li>
+                        <li>
+                            <strong>Cọ Vẽ Đa Dạng:</strong> Giảm giá 25% cho tất cả các loại cọ vẽ, từ cọ lông sóc mềm mại cho màu nước đến cọ tổng hợp cứng cáp cho màu acrylic và sơn dầu. Đảm bảo bạn có công cụ phù hợp cho mọi kỹ thuật.
+                        </li>
+                        <li>
+                            <strong>Giấy Vẽ Chuyên Dụng:</strong> Mua 2 tặng 1 hoặc giảm 35% cho các loại giấy vẽ chuyên biệt dành cho màu nước, chì, hoặc marker. Chất lượng giấy tối ưu giúp tác phẩm của bạn bền đẹp theo thời gian.
+                        </li>
+                        <li>
+                            <strong>Và Hàng Ngàn Sản Phẩm Khác:</strong> Ngoài ra, còn rất nhiều sản phẩm họa cụ khác như bảng pha màu, giá vẽ, dao tỉa, dung môi, v.v., đều đang chờ bạn khám phá với mức giá ưu đãi.
+                        </li>
+                    </ul>
+
+                    <h2>Tại Sao Bạn Nên Tham Gia?</h2>
+                    <p>
+                        Đây không chỉ là một chương trình giảm giá thông thường, mà còn là cơ hội để bạn tiếp cận với những họa cụ chất lượng quốc tế với chi phí phải chăng nhất. Việc sử dụng họa cụ tốt sẽ giúp bạn phát huy tối đa khả năng sáng tạo và tạo ra những tác phẩm có giá trị hơn. Đừng bỏ lỡ để làm phong phú thêm kho tàng họa cụ của mình!
                     </p>
 
                     <h2>Thời Gian Áp Dụng:</h2>
@@ -87,7 +301,8 @@
                     <h3>Các mục</h3>
                     <ul>
                         <li><a href="sanpham.html">Tất cả sản phẩm</a></li>
-                        <li><a href="promotion.html">Tin khuyến mãi</a></li> <li><a href="faq.html">Câu hỏi thường gặp</a></li>
+                        <li><a href="promotion.html">Tin khuyến mãi</a></li>
+                        <li><a href="faq.html">Câu hỏi thường gặp</a></li>
                         <li><a href="privacy-policy.html">Chính sách bảo mật</a></li>
                     </ul>
                 </div>
