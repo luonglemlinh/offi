@@ -6,6 +6,124 @@
     <title>Khuyến mãi: Giảm 20% Dụng Cụ Văn Phòng - Văn phòng phẩm Offi</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
+    <style>
+        /* CSS này được thêm trực tiếp vào file HTML
+         * để ghi đè các quy tắc từ style.css mà không chỉnh sửa style.css
+         * nhằm loại bỏ gạch chân cho link và giữ kiểu tiêu đề
+         */
+
+        /* Loại bỏ gạch chân và đặt lại màu cho tất cả các liên kết (a) */
+        a {
+            text-decoration: none !important; /* Xóa gạch chân */
+            color: inherit !important; /* Kế thừa màu từ phần tử cha (thường là màu đen #333) */
+        }
+
+        /* Đặt lại màu khi hover cho các liên kết */
+        a:hover {
+            color: #0056b3 !important; /* Màu xanh đậm hơn khi hover */
+            text-decoration: underline !important; /* Có gạch chân khi hover để dễ nhận biết */
+        }
+
+        /* Đảm bảo các liên kết trong menu chính không gạch chân và đúng màu */
+        .main-menu ul li a {
+            text-decoration: none !important;
+            color: #333 !important; /* Hoặc màu bạn muốn cho menu */
+        }
+
+        .main-menu ul li a:hover {
+            color: #0056b3 !important; /* Màu khi hover menu */
+            text-decoration: underline !important; /* Thêm gạch chân khi hover menu nếu muốn */
+        }
+
+        /* Đảm bảo các liên kết trong footer không gạch chân và đúng màu */
+        footer a {
+            text-decoration: none !important;
+            color: #ccc !important; /* Màu xám nhạt cho link footer */
+        }
+
+        footer a:hover {
+            color: #fff !important; /* Màu trắng khi hover footer */
+            text-decoration: underline !important; /* Có gạch chân khi hover footer nếu muốn */
+        }
+
+        /* Điều chỉnh các tiêu đề H1, H2, H3 để đảm bảo căn giữa, đúng cỡ chữ và không gạch chân */
+        h1, h2, h3 {
+            text-align: center !important; /* Tất cả các tiêu đề căn giữa */
+            font-weight: bold !important; /* Đảm bảo in đậm */
+            text-decoration: none !important; /* Không gạch chân */
+            color: #333 !important; /* Màu chữ mặc định */
+        }
+
+        h1 {
+            font-size: 2.8em !important;
+            margin-bottom: 40px !important;
+        }
+
+        h2 {
+            font-size: 1.8em !important;
+            margin-top: 30px !important;
+            margin-bottom: 15px !important;
+        }
+
+        h3 {
+            font-size: 1.4em !important;
+            margin-top: 20px !important;
+            margin-bottom: 10px !important;
+        }
+
+        /* Đảm bảo thẻ strong trong li vẫn in đậm và không gạch chân */
+        ul li strong {
+            font-weight: bold !important;
+            text-decoration: none !important; /* Không gạch chân */
+            color: #333 !important; /* Hoặc màu bạn muốn cho chữ đậm này */
+        }
+
+        /* Breadcrumb - thường có gạch chân để dễ nhận biết là link dẫn đường */
+        /* Bạn có thể bỏ gạch chân cho breadcrumb hoặc giữ lại */
+        .breadcrumb a {
+            text-decoration: none !important; /* Xóa gạch chân cho breadcrumb */
+            color: #007bff !important; /* Giữ màu xanh cho link breadcrumb */
+        }
+        .breadcrumb a:hover {
+            text-decoration: underline !important; /* Có gạch chân khi hover cho breadcrumb */
+        }
+
+        /* Một số điều chỉnh nhỏ cho bố cục nội dung mở rộng */
+        .promo-content h2 {
+            color: #007bff !important; /* Màu xanh nổi bật cho tiêu đề phụ trong promo-content */
+            margin-top: 40px !important;
+            margin-bottom: 20px !important;
+        }
+
+        .promo-content ul {
+            list-style: disc !important; /* Dấu chấm đầu dòng cho danh sách */
+            margin-left: 20px !important;
+            margin-bottom: 20px !important;
+            text-align: left !important; /* Đảm bảo danh sách vẫn căn trái */
+        }
+
+        .promo-content ul li {
+            margin-bottom: 10px !important;
+            line-height: 1.7 !important;
+        }
+
+        .promo-content p {
+            text-align: justify; /* Căn đều cho đoạn văn bản */
+        }
+        .promo-content p.promo-meta,
+        .promo-content p.promo-expiry {
+            text-align: center; /* Căn giữa cho các đoạn meta và expiry */
+        }
+
+        .promo-content .highlight {
+            font-weight: bold;
+            color: #d9534f; /* Màu đỏ nổi bật cho các điểm quan trọng */
+        }
+        .promo-content .btn-back {
+            margin-top: 30px;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -49,10 +167,50 @@
                 <div class="promo-content">
                     <img src="images/banner_2.jpg" alt="Ưu đãi Dụng cụ văn phòng">
                     <h1>Giảm 20% Toàn Bộ Dụng Cụ Văn Phòng Phẩm</h1>
-                    <p class="promo-description">Cập nhật ngay bộ dụng cụ văn phòng phẩm thiết yếu: kẹp giấy, ghim, băng keo, kéo, dao rọc giấy... giảm giá hấp dẫn! Đừng bỏ lỡ cơ hội nâng cấp không gian làm việc của bạn.</p>
-                    <p class="promo-meta">Áp dụng cho tất cả các sản phẩm dụng cụ văn phòng.</p>
-                    <p class="promo-expiry"><strong>Hết hạn:</strong> 29/06/2025</p>
-                    <a href="promotion.html" class="btn btn-back">Quay lại Tin khuyến mãi</a>
+                    <p class="promo-description">
+                        Nâng tầm hiệu suất làm việc với bộ sưu tập dụng cụ văn phòng cao cấp, giảm giá sâu đến <strong class="highlight">20%</strong>! Từ những vật dụng cơ bản đến thiết bị hỗ trợ chuyên nghiệp, mọi thứ bạn cần để tối ưu hóa không gian làm việc và học tập đều có mặt tại Offi với mức giá ưu đãi chưa từng có. Đừng bỏ lỡ cơ hội vàng để trang bị đầy đủ và hiệu quả nhất cho công việc và học tập của bạn!
+                    </p>
+
+                    <h2>Khám Phá Các Bộ Sưu Tập Đặc Biệt:</h2>
+                    <ul>
+                        <li>
+                            <strong>Dụng Cụ Văn Phòng Cơ Bản:</strong> Kẹp giấy, ghim, băng keo, kéo, dao rọc giấy, bấm kim... giảm giá trực tiếp <strong class="highlight">20%</strong>. Đảm bảo bạn luôn có đủ những vật dụng cần thiết cho mọi tác vụ hàng ngày.
+                        </li>
+                        <li>
+                            <strong>Dụng Cụ Ghi Chép:</strong> Sổ tay các loại, giấy note, bút bi, bút gel, bút highlight... giảm giá <strong class="highlight">15%</strong>.
+                        </li>
+                        <li>
+                            <strong>Tài Liệu & Lưu Trữ:</strong> File còng, bìa hồ sơ, hộp đựng tài liệu, kệ sách mini... giảm <strong class="highlight">10%</strong>. Giúp sắp xếp tài liệu một cách ngăn nắp và chuyên nghiệp.
+                        </li>
+                        <li>
+                            <strong>Thiết Bị Hỗ Trợ:</strong> Máy tính bỏ túi, máy bấm giờ, máy hủy tài liệu cá nhân (chọn lọc)... giảm giá đến <strong class="highlight">15%</strong>.
+                        </li>
+                        <li>
+                            <strong>Và Nhiều Hơn Nữa:</strong> Các sản phẩm khác như dụng cụ vệ sinh văn phòng, phụ kiện bàn làm việc... cũng được áp dụng ưu đãi.
+                        </li>
+                    </ul>
+
+                    <h2>Tại Sao Bạn Nên Tham Gia?</h2>
+                    <p>
+                        Đầu tư vào dụng cụ văn phòng chất lượng không chỉ giúp công việc trôi chảy, chuyên nghiệp hơn mà còn tạo cảm hứng làm việc mỗi ngày. Với ưu đãi này, bạn có thể trang bị đầy đủ mà vẫn tiết kiệm đáng kể. Hãy làm mới không gian làm việc của bạn ngay hôm nay để đạt hiệu quả tối ưu!
+                    </p>
+
+                    <h2>Thời Gian Áp Dụng:</h2>
+                    <p class="promo-meta">Chương trình áp dụng cho tất cả các sản phẩm dụng cụ văn phòng.</p>
+                    <p class="promo-expiry"><strong>Thời gian khuyến mãi:</strong> Từ 01/06/2025 đến hết 29/06/2025</p>
+
+                    <h2>Điều Kiện & Điều Khoản:</h2>
+                    <ol>
+                        <li>Chương trình áp dụng cho các sản phẩm dụng cụ văn phòng có trong danh mục khuyến mãi.</li>
+                        <li>Mức giảm giá 20% áp dụng trực tiếp trên giá niêm yết.</li>
+                        <li>Khuyến mãi có thể không áp dụng đồng thời với các chương trình ưu đãi khác.</li>
+                        <li>Số lượng sản phẩm khuyến mãi có hạn, chương trình có thể kết thúc sớm hơn dự kiến khi hết hàng hoặc ngân sách.</li>
+                        <li>Văn phòng phẩm Offi có quyền thay đổi các điều khoản và điều kiện của chương trình mà không cần báo trước.</li>
+                    </ol>
+
+                    <p>Hãy truy cập ngay mục <a href="sanpham.html" style="color: #007bff; text-decoration: underline;">Sản phẩm Dụng cụ Văn phòng của chúng tôi</a> hoặc ghé thăm cửa hàng gần nhất để không bỏ lỡ những ưu đãi hấp dẫn này!</p>
+
+                    <a href="promotion.html" class="btn btn-back">Quay lại Tin khuyến mãi khác</a>
                 </div>
             </div>
         </section>
@@ -71,6 +229,7 @@
                     <h3>Các mục</h3>
                     <ul>
                         <li><a href="sanpham.html">Tất cả sản phẩm</a></li>
+                        <li><a href="promotion.html">Tin khuyến mãi</a></li>
                         <li><a href="faq.html">Câu hỏi thường gặp</a></li>
                         <li><a href="privacy-policy.html">Chính sách bảo mật</a></li>
                     </ul>
