@@ -411,6 +411,10 @@ h2::after { /* Đường kẻ dưới tiêu đề */
     box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.5); /* Hiệu ứng sáng xung quanh */
 }
 
+.breadcrumb {
+    padding: 20px auto;
+}
+
 .product-content {
     display: flex;
     gap: 30px;
