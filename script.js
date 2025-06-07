@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const homeLink = document.getElementById("homeLink");
     const cartCount = document.querySelector(".cart-count"); // Using querySelector for class
 
-    // Function to update the cart count display in the header
+//Tự động thêm số lượng bên cạnh giỏ hàng 
     function capNhatSoLuongGioHang() {
         const gioHang = JSON.parse(localStorage.getItem("gioHang")) || [];
         const tong = gioHang.reduce((sum, sp) => sum + sp.soLuong, 0);
@@ -17,13 +17,13 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // Call this function immediately when the DOM is loaded to show current cart count
+
     capNhatSoLuongGioHang();
 
-    // Function to add or update a product in the cart
+    //Thêm sản phẩm mới vào giỏ hàng
     function themVaoGioHang(sanPhamMoi) {
         let gioHang = JSON.parse(localStorage.getItem("gioHang")) || [];
-        // Ensure sanPhamMoi has an 'id' for proper tracking
+        //Đảm bảo sản phẩm mới có ID
         if (!sanPhamMoi.id) {
             console.error("Sản phẩm thiếu ID. Không thể thêm vào giỏ hàng.", sanPhamMoi);
             return;
@@ -32,10 +32,10 @@ document.addEventListener("DOMContentLoaded", function () {
         const index = gioHang.findIndex(item => item.id === sanPhamMoi.id);
 
         if (index !== -1) {
-            // If the product already exists, update its quantity
+            // Nếu sản phẩm này đã có trong giỏ hàng thì +số lượng
             gioHang[index].soLuong += sanPhamMoi.soLuong;
         } else {
-            // If not, add the new product
+            
             gioHang.push(sanPhamMoi);
         }
         localStorage.setItem("gioHang", JSON.stringify(gioHang));
@@ -157,9 +157,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const addToCartBtn = document.getElementById("addToCartBtn");
     if (addToCartBtn) {
         addToCartBtn.addEventListener("click", () => {
-            const id = addToCartBtn.dataset.id; // Get id from data-id attribute
-            const ten = addToCartBtn.dataset.ten; // Get name from data-ten attribute
-            const gia = parseInt(addToCartBtn.dataset.gia); // Price is already a number in data-gia
+            const id = addToCartBtn.dataset.id; 
+            const ten = addToCartBtn.dataset.ten; 
+            const gia = parseInt(addToCartBtn.dataset.gia); 
             const soLuongInput = document.getElementById("quantity");
             const soLuong = parseInt(soLuongInput.value);
 
@@ -234,18 +234,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     
-    // ======== CART DISPLAY ON GIOHANG.HTML ========
+    // ======== Hiển thị giỏ hàng ========
     const cartItemsContainer = document.getElementById("cartItems");
     const cartTotalElement = document.getElementById("cartTotal");
 
-    // Only run cart display functions if on giohang.html
+    //Hàm đảm bảo chỉ chạy trên trang giỏ hàng
     if (cartItemsContainer && cartTotalElement) {
-        hienThiGioHang(); // Display cart when giohang.html loads
+        hienThiGioHang(); 
     }
 
     function hienThiGioHang() {
         const gioHang = JSON.parse(localStorage.getItem("gioHang")) || [];
-        cartItemsContainer.innerHTML = ""; // Clear existing items
+        cartItemsContainer.innerHTML = ""; 
 
         let tongTien = 0;
 
@@ -273,14 +273,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
         cartTotalElement.textContent = tongTien.toLocaleString('vi-VN') + " VNĐ";
 
-        // Attach event listeners to quantity inputs and remove buttons *after* rendering
+        // Thêm event listener cho thêm và xóa các sản phẩm riêng trong giỏ hàng
         document.querySelectorAll(".item-quantity").forEach(input => {
-            input.removeEventListener("change", capNhatSoLuongTrongGioHang); // Prevent duplicate listeners
+            input.removeEventListener("change", capNhatSoLuongTrongGioHang); //chống trùng lặp
             input.addEventListener("change", capNhatSoLuongTrongGioHang);
         });
 
         document.querySelectorAll(".remove-item-btn").forEach(button => {
-            button.removeEventListener("click", xoaSanPhamKhoiGioHang); // Prevent duplicate listeners
+            button.removeEventListener("click", xoaSanPhamKhoiGioHang); //chống trùng lặp
             button.addEventListener("click", xoaSanPhamKhoiGioHang);
         });
     }
@@ -288,10 +288,10 @@ document.addEventListener("DOMContentLoaded", function () {
     function xoaSanPhamKhoiGioHang(event) {
         const idCanXoa = event.target.dataset.id;
         let gioHang = JSON.parse(localStorage.getItem("gioHang")) || [];
-        gioHang = gioHang.filter(sanPham => sanPham.id !== idCanXoa); // Filter out the item to remove
-        localStorage.setItem("gioHang", JSON.stringify(gioHang)); // Save updated cart
-        hienThiGioHang(); // Re-render cart display
-        capNhatSoLuongGioHang(); // Update header count
+        gioHang = gioHang.filter(sanPham => sanPham.id !== idCanXoa); //lọc sản phẩm cần xóa
+        localStorage.setItem("gioHang", JSON.stringify(gioHang)); //cập nhập lại giỏ hàng
+        hienThiGioHang();
+        capNhatSoLuongGioHang(); 
     }
 
     function capNhatSoLuongTrongGioHang(event) {
@@ -300,7 +300,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (isNaN(newQuantity) || newQuantity < 1) {
             alert("Số lượng không hợp lệ. Vui lòng nhập một số dương.");
-            event.target.value = 1; // Reset to 1 if invalid
+            event.target.value = 1; // đặt lại thành 1
             return;
         }
 
@@ -309,9 +309,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (index !== -1) {
             gioHang[index].soLuong = newQuantity;
-            localStorage.setItem("gioHang", JSON.stringify(gioHang)); // Save updated cart
-            hienThiGioHang(); // Re-render cart display
-            capNhatSoLuongGioHang(); // Update header count
+            localStorage.setItem("gioHang", JSON.stringify(gioHang)); // cập nhập lại giỏ hàng
+            hienThiGioHang(); 
+            capNhatSoLuongGioHang(); 
         }
     }
 });
