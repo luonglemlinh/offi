@@ -3,9 +3,127 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Khuyến mãi: Giảm 15% Giấy Note - Văn phòng phẩm Offi</title>
+    <title>Khuyến mãi: Giảm 15% Giấy Note & Sticky Pad - Văn phòng phẩm Offi</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
+    <style>
+        /* CSS này được thêm trực tiếp vào file HTML
+         * để ghi đè các quy tắc từ style.css mà không chỉnh sửa style.css
+         * nhằm loại bỏ gạch chân cho link và giữ kiểu tiêu đề
+         */
+
+        /* Loại bỏ gạch chân và đặt lại màu cho tất cả các liên kết (a) */
+        a {
+            text-decoration: none !important; /* Xóa gạch chân */
+            color: inherit !important; /* Kế thừa màu từ phần tử cha (thường là màu đen #333) */
+        }
+
+        /* Đặt lại màu khi hover cho các liên kết */
+        a:hover {
+            color: #0056b3 !important; /* Màu xanh đậm hơn khi hover */
+            text-decoration: underline !important; /* Có gạch chân khi hover để dễ nhận biết */
+        }
+
+        /* Đảm bảo các liên kết trong menu chính không gạch chân và đúng màu */
+        .main-menu ul li a {
+            text-decoration: none !important;
+            color: #333 !important; /* Hoặc màu bạn muốn cho menu */
+        }
+
+        .main-menu ul li a:hover {
+            color: #0056b3 !important; /* Màu khi hover menu */
+            text-decoration: underline !important; /* Thêm gạch chân khi hover menu nếu muốn */
+        }
+
+        /* Đảm bảo các liên kết trong footer không gạch chân và đúng màu */
+        footer a {
+            text-decoration: none !important;
+            color: #ccc !important; /* Màu xám nhạt cho link footer */
+        }
+
+        footer a:hover {
+            color: #fff !important; /* Màu trắng khi hover footer */
+            text-decoration: underline !important; /* Có gạch chân khi hover footer nếu muốn */
+        }
+
+        /* Điều chỉnh các tiêu đề H1, H2, H3 để đảm bảo căn giữa, đúng cỡ chữ và không gạch chân */
+        h1, h2, h3 {
+            text-align: center !important; /* Tất cả các tiêu đề căn giữa */
+            font-weight: bold !important; /* Đảm bảo in đậm */
+            text-decoration: none !important; /* Không gạch chân */
+            color: #333 !important; /* Màu chữ mặc định */
+        }
+
+        h1 {
+            font-size: 2.8em !important;
+            margin-bottom: 40px !important;
+        }
+
+        h2 {
+            font-size: 1.8em !important;
+            margin-top: 30px !important;
+            margin-bottom: 15px !important;
+        }
+
+        h3 {
+            font-size: 1.4em !important;
+            margin-top: 20px !important;
+            margin-bottom: 10px !important;
+        }
+
+        /* Đảm bảo thẻ strong trong li vẫn in đậm và không gạch chân */
+        ul li strong {
+            font-weight: bold !important;
+            text-decoration: none !important; /* Không gạch chân */
+            color: #333 !important; /* Hoặc màu bạn muốn cho chữ đậm này */
+        }
+
+        /* Breadcrumb - thường có gạch chân để dễ nhận biết là link dẫn đường */
+        /* Bạn có thể bỏ gạch chân cho breadcrumb hoặc giữ lại */
+        .breadcrumb a {
+            text-decoration: none !important; /* Xóa gạch chân cho breadcrumb */
+            color: #007bff !important; /* Giữ màu xanh cho link breadcrumb */
+        }
+        .breadcrumb a:hover {
+            text-decoration: underline !important; /* Có gạch chân khi hover cho breadcrumb */
+        }
+
+        /* Một số điều chỉnh nhỏ cho bố cục nội dung mở rộng */
+        .promo-content h2 {
+            color: #007bff !important; /* Màu xanh nổi bật cho tiêu đề phụ trong promo-content */
+            margin-top: 40px !important;
+            margin-bottom: 20px !important;
+        }
+
+        .promo-content ul {
+            list-style: disc !important; /* Dấu chấm đầu dòng cho danh sách */
+            margin-left: 20px !important;
+            margin-bottom: 20px !important;
+            text-align: left !important; /* Đảm bảo danh sách vẫn căn trái */
+        }
+
+        .promo-content ul li {
+            margin-bottom: 10px !important;
+            line-height: 1.7 !important;
+        }
+
+        .promo-content p {
+            text-align: justify; /* Căn đều cho đoạn văn bản */
+        }
+        .promo-content p.promo-meta,
+        .promo-content p.promo-expiry {
+            text-align: center; /* Căn giữa cho các đoạn meta và expiry */
+        }
+
+        .promo-content .highlight {
+            font-weight: bold;
+            color: #d9534f; /* Màu đỏ nổi bật cho các điểm quan trọng */
+        }
+        .promo-content .btn-back {
+            margin-top: 30px;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -49,10 +167,25 @@
                 <div class="promo-content">
                     <img src="images/promo_5.jpg" alt="Ưu đãi Giấy note">
                     <h1>Giảm Giá 15% Toàn Bộ Giấy Note & Sticky Pad</h1>
-                    <p class="promo-description">Sản phẩm giấy note nhiều màu sắc, kích cỡ, giúp bạn ghi chú nhanh chóng và dán mọi lúc mọi nơi. Tổ chức công việc dễ dàng! Đây là cơ hội để bổ sung nguồn cung cấp giấy note của bạn.</p>
-                    <p class="promo-meta">Áp dụng cho tất cả các loại giấy note và sticky pad.</p>
-                    <p class="promo-expiry"><strong>Hết hạn:</strong> 18/06/2025</p>
-                    <a href="promotion.html" class="btn btn-back">Quay lại Tin khuyến mãi</a>
+                    <p class="promo-description">
+                        Đừng để những ý tưởng bay mất! Văn phòng phẩm Offi mang đến chương trình khuyến mãi "Giảm Giá 15% Toàn Bộ Giấy Note & Sticky Pad". Cho dù bạn cần ghi chú nhanh, đánh dấu trang sách, hay tổ chức công việc hàng ngày, những tập giấy note nhiều màu sắc, kích cỡ, và đa dạng kiểu dáng sẽ là trợ thủ đắc lực cho bạn. Đây là cơ hội tuyệt vời để bổ sung nguồn cung cấp giấy note của bạn với mức giá ưu đãi!
+                    </p>
+
+                    <h2>Thời Gian Áp Dụng:</h2>
+                    <p class="promo-meta">Chương trình áp dụng cho tất cả sản phẩm giấy note và sticky pad tại cửa hàng và online.</p>
+                    <p class="promo-expiry"><strong>Thời gian khuyến mãi:</strong> Từ 07/06/2025 đến hết 18/06/2025</p>
+
+                    <h2>Điều Kiện & Điều Khoản:</h2>
+                    <ol>
+                        <li>Mức giảm giá 15% sẽ được áp dụng trực tiếp vào giá sản phẩm khi thanh toán.</li>
+                        <li>Chương trình có thể không áp dụng đồng thời với các chương trình khuyến mãi khác.</li>
+                        <li>Số lượng sản phẩm khuyến mãi có hạn, chương trình có thể kết thúc sớm hơn dự kiến.</li>
+                        <li>Văn phòng phẩm Offi có quyền thay đổi các điều khoản và điều kiện của chương trình mà không cần báo trước.</li>
+                    </ol>
+
+                    <p>Hãy truy cập ngay mục <a href="sanpham.html" style="color: #007bff; text-decoration: underline;">Sản phẩm Giấy note của chúng tôi</a> hoặc ghé thăm cửa hàng để không bỏ lỡ ưu đãi hấp dẫn này!</p>
+
+                    <a href="promotion.html" class="btn btn-back">Quay lại Tin khuyến mãi khác</a>
                 </div>
             </div>
         </section>
@@ -71,6 +204,7 @@
                     <h3>Các mục</h3>
                     <ul>
                         <li><a href="sanpham.html">Tất cả sản phẩm</a></li>
+                        <li><a href="promotion.html">Tin khuyến mãi</a></li>
                         <li><a href="faq.html">Câu hỏi thường gặp</a></li>
                         <li><a href="privacy-policy.html">Chính sách bảo mật</a></li>
                     </ul>
