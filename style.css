@@ -127,8 +127,6 @@ ul {
         justify-content: center; /* Căn giữa các icon khi menu xếp dọc */
         width: 100%; /* Chiếm toàn bộ chiều rộng */
     }
-
-    /* Có thể điều chỉnh lại kích thước hoặc ẩn icon nếu cần thiết */
 }
 
 /* --- Header Section --- */
@@ -411,6 +409,10 @@ h2::after { /* Đường kẻ dưới tiêu đề */
 .thumbnail.active { /* Ảnh nhỏ đang được chọn */
     border-color: #e67e22; /* Viền cam nổi bật */
     box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.5); /* Hiệu ứng sáng xung quanh */
+}
+
+.product-info {
+    float: left;
 }
 
 /* --- Footer Section --- */
