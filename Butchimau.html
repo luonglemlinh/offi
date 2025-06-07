@@ -4,19 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chi tiết sản phẩm - Hộp bút chì màu Faber-Castell</title>
-    </head>
+    <link rel="stylesheet" href="style.css">
+</head>
 <body>
 
     <header>
         <div class="container">
             <div class="logo">
                 <a href="index.html">
-                    <img src="images/logo.png" alt="Logo Văn phòng phẩm Offi">
+                    <img src="images/logo.png" alt="Logo Văn phòng phẩm ABC">
                 </a>
             </div>
             <nav class="main-menu">
                 <ul>
-                    <li><a href="index.html" id="homeLink">Trang chủ</a></li>
+                    <li><a href="index.html" id="homeLink">Trang chủ</a></li> <li><a href="index.html">Trang chủ</a></li>
                     <li><a href="sanpham.html">Sản phẩm</a></li>
                     <li><a href="about.html">Về chúng tôi</a></li>
                     <li><a href="phanhoi.html">Phản hồi</a></li>
@@ -33,8 +34,7 @@
                 </a>
                 <a href="giohang.html" class="action-icon" aria-label="Giỏ hàng">
                     <img src="images/cart_icon.jpg" alt="Giỏ hàng">
-                    <span class="cart-count">0</span>
-                </a>
+                    <span class="cart-count">0</span> </a>
             </div>
         </div>
     </header>
@@ -47,12 +47,12 @@
                 </div>
                 <div class="product-content">
                     <div class="product-image">
-                        <img id="mainProductImage" src="images/faber_castell.jpeg" alt="Hộp bút chì màu Faber-Castell">
+                        <img id="mainProductImage" src="images/faber_castell.jpeg" alt="Thiên long xanh">
                         <div id="thumbnailContainer" class="thumbnail-container">
                             <img class="thumbnail active" src="images/faber_castell.jpeg" data-full-image="images/faber_castell.jpeg" alt="Fabel Castell">
-                            <img class="thumbnail" src="images/fabel_castell_sau.webp" data-full-image="images/fabel_castell_sau.webp" alt="Mặt sau">
-                            <img class="thumbnail" src="images/fabel_castell_nam.webp" data-full-image="images/fabel_castell_nam.webp" alt="Đặt ngang">
-                            <img class="thumbnail" src="images/fabel_castell_trong.webp" data-full-image="images/fabel_castell_trong.webp" alt="Bên trong hộp">
+                            <img class="thumbnail" src="images/fabel_castell_sau.webp" data-full-image="images/fabel_castell_sau.webp" alt="Sau">
+                            <img class="thumbnail" src="images/fabel_castell_nam.webp" data-full-image="images/fabel_castell_nam.webp" alt="Nằm">
+                            <img class="thumbnail" src="images/fabel_castell_trong.webp" data-full-image="images/fabel_castell_trong.webp" alt="Trong">
                         </div>
                     </div>
                     <div class="product-info">
@@ -79,7 +79,7 @@
                         <div class="product-actions">
                             <label for="quantity">Số lượng:</label>
                             <input type="number" id="quantity" name="quantity" value="1" min="1">
-                            <button class="btn-them-gio" id="addToCartBtn" data-id="HBC_FaberCastell24" data-ten="Hộp bút chì màu Faber-Castell" data-gia="80000">Thêm giỏ hàng</button>
+                            <button class="btn-them-gio" data-ten="Hộp bút chị màu Faber-Castell" data-gia="80.000đ">Thêm giỏ hàng</button>
                         </div>
                     </div>
                 </div>
@@ -92,24 +92,24 @@
                                 <img src="images/thien_long_0.5.jpg" alt="Bút bi Thiên Long 0.5mm">
                                 <h3>Bút bi Thiên Long 0.5mm</h3>
                                 <p class="price">7.000 VNĐ</p>
-                            </a>
-                            <button class="btn">Mua ngay</button>
+                                <button class="btn">Mua ngay</button>
+                             </a>
                         </div>
                         <div class="product-item">
                             <a href="GiayA4.html">
                                 <img src="images/Giay_A4_70gsm.webp" alt="Giấy A4 Double A 70gsm">
                                 <h3>Giấy A4 Double A 70gsm</h3>
                                 <p class="price">65.000 VNĐ</p>
+                                <button class="btn">Mua ngay</button> 
                             </a>
-                            <button class="btn">Mua ngay</button>
                         </div>
                         <div class="product-item">
                             <a href="Thuockenhua.html">
                                 <img src="images/thuoc_ke.jpeg" alt="Thước kẻ nhựa 20cm">
                                 <h3>Thước kẻ nhựa 20cm</h3>
                                 <p class="price">5.000 VNĐ</p>
+                                <button class="btn">Mua ngay</button>
                             </a>
-                            <button class="btn">Mua ngay</button>
                         </div>
                     </div>
                 </div>
@@ -122,8 +122,8 @@
             <div class="footer-columns">
                 <div class="footer-col">
                     <h3>Địa chỉ cơ sở</h3>
-                    <p>Văn phòng phẩm Offi</p>
-                    <p>12 Chùa Bộc, phường Quang Trung, quận Đống Đa</p>
+                    <p>Văn phòng phẩm ABC</p>
+                    <p>123 Đường ABC, Quận XYZ</p>
                     <p>Thành phố Hà Nội, Việt Nam</p>
                 </div>
                 <div class="footer-col">
@@ -137,10 +137,10 @@
                 <div class="footer-col">
                     <h3>Thông tin liên hệ</h3>
                     <p>Điện thoại: <a href="tel:+84987654321">0987 654 321</a></p>
-                    <p>Email: <a href="mailto:info@vanphongphamoffi.com">info@vanphongphamoffi.com</a></p>
+                    <p>Email: <a href="mailto:info@vanphongphamabc.com">info@vanphongphamabc.com</a></p>
                     <div class="social-links">
-                        <a href="https://www.facebook.com" target="_blank"><img src="images/LogoFacebook.png" alt="Facebook"></a>
-                        <a href="https://www.instagram.com" target="_blank"><img src="images/LogoInstagram.png" alt="Instagram"></a>
+                        <a href="https://facebook.com" target="_blank"><img src="images/LogoFacebook.png" alt="Facebook"></a>
+                        <a href="https://instagram.com" target="_blank"><img src="images/LogoInstagram.png" alt="Instagram"></a>
                     </div>
                 </div>
             </div>
