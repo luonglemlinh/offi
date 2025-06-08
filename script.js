@@ -205,10 +205,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
         thumbnails.forEach(thumbnail => {
             thumbnail.addEventListener('click', function() {
-                const fullImageUrl = this.getAttribute('data-full-image');
+                const fullImageUrl = this.getAttribute('data-full-image');// thay đổi link của ảnh chính thành ảnh được chon
                 mainProductImage.src = fullImageUrl;
 
-                thumbnails.forEach(t => t.classList.remove('active'));
+                thumbnails.forEach(t => t.classList.remove('active'));// xoá class active ở ảnh chính và thêm vào ở ảnh được chọn
                 this.classList.add('active');
             });
         });
