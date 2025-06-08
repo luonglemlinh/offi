@@ -517,6 +517,50 @@ h2::after { /* Đường kẻ dưới tiêu đề */
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
+/* --- Styles for Filter and Sort Section --- */
+.filter-sort {
+    display: flex; /* Sử dụng flexbox */
+    justify-content: flex-end; /* Đẩy các phần tử sang phải */
+    align-items: center; /* Căn chỉnh theo chiều dọc */
+    gap: 20px; /* Khoảng cách giữa các phần tử */
+    margin-bottom: 30px; /* Khoảng cách với lưới sản phẩm */
+    flex-wrap: wrap; /* Cho phép xuống dòng trên màn hình nhỏ */
+}
+
+.filter-sort label {
+    font-weight: 600; /* Chữ đậm hơn cho label */
+    color: #555;
+    font-size: 0.95em;
+}
+
+.filter-sort select {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 0.95em;
+    background-color: #fff;
+    cursor: pointer;
+    outline: none; /* Bỏ viền khi focus */
+    -webkit-appearance: none; /* Ẩn mũi tên mặc định trên Chrome/Safari */
+    -moz-appearance: none; /* Ẩn mũi tên mặc định trên Firefox */
+    appearance: none; /* Ẩn mũi tên mặc định */
+    padding-right: 30px; /* Tạo khoảng trống cho mũi tên */
+}
+
+.filter-sort select:focus {
+    border-color: #007bff; /* Viền xanh khi focus */
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+/* Responsive cho filter-sort */
+@media (max-width: 768px) {
+    .filter-sort {
+        flex-direction: column; /* Xếp dọc các phần tử trên màn hình nhỏ */
+        align-items: flex-start; /* Căn trái */
+        gap: 15px; /* Giảm khoảng cách */
+    }
+}
+
 /* --- Footer Section --- */
 footer {
     background-color: #333; /* Nền tối cho footer */
